@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'ja' }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} — Sheet Widget</title>
+<meta name="description" content="Sheet Widget — {{ page.title }}">
+{% if page.permalink contains 'privacy' %}{% assign legalBase = 'privacy' %}{% else %}{% assign legalBase = 'terms' %}{% endif %}
+
+{% case page.lang %}
+  {% when 'ja' %}{% assign home = '/ja/' %}{% assign homeLabel = '← ホーム' %}{% assign ogLocale = 'ja_JP' %}
+  {% when 'ko' %}{% assign home = '/ko/' %}{% assign homeLabel = '← 홈' %}{% assign ogLocale = 'ko_KR' %}
+  {% when 'zh-Hant' %}{% assign home = '/zht/' %}{% assign homeLabel = '← 首頁' %}{% assign ogLocale = 'zh_TW' %}
+  {% when 'es' %}{% assign home = '/es/' %}{% assign homeLabel = '← Inicio' %}{% assign ogLocale = 'es_ES' %}
+  {% when 'de' %}{% assign home = '/de/' %}{% assign homeLabel = '← Startseite' %}{% assign ogLocale = 'de_DE' %}
+  {% when 'fr' %}{% assign home = '/fr/' %}{% assign homeLabel = '← Accueil' %}{% assign ogLocale = 'fr_FR' %}
+  {% else %}{% assign home = '/' %}{% assign homeLabel = '← Home' %}{% assign ogLocale = 'en_US' %}
+{% endcase %}
+<link rel="canonical" href="https://sheetwidget.com{{ page.permalink }}">
+<link rel="alternate" hreflang="x-default" href="https://sheetwidget.com/{{ legalBase }}/">
+<link rel="alternate" hreflang="en" href="https://sheetwidget.com/{{ legalBase }}/">
+<link rel="alternate" hreflang="ja" href="https://sheetwidget.com/ja/{{ legalBase }}/">
+<link rel="alternate" hreflang="ko" href="https://sheetwidget.com/ko/{{ legalBase }}/">
+<link rel="alternate" hreflang="zh-Hant" href="https://sheetwidget.com/zht/{{ legalBase }}/">
+<link rel="alternate" hreflang="es" href="https://sheetwidget.com/es/{{ legalBase }}/">
+<link rel="alternate" hreflang="de" href="https://sheetwidget.com/de/{{ legalBase }}/">
+<link rel="alternate" hreflang="fr" href="https://sheetwidget.com/fr/{{ legalBase }}/">
+<meta property="og:site_name" content="Sheet Widget">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ page.title }} — Sheet Widget">
+<meta property="og:image" content="https://sheetwidget.com/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sheetwidget.com{{ page.permalink }}">
+<meta property="og:description" content="Sheet Widget — {{ page.title }}">
+<meta property="og:locale" content="{{ ogLocale }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }} — Sheet Widget">
+<meta name="twitter:description" content="Sheet Widget — {{ page.title }}">
+<meta name="twitter:image" content="https://sheetwidget.com/img/og.png">
+<meta name="theme-color" content="#fbfaf6">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="stylesheet" media="print" onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
+<style>
+:root{
+  --paper:#fbfaf6; --ink:#1b1d1f; --ink-2:#5f6368;
+  --grid:#e8e6de; --grid-strong:#d5d2c8;
+  --green:#188038; --green-deep:#0d652d; --green-bg:#e6f4ea;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Zen Kaku Gothic New',-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);background:var(--paper);color:var(--ink);
+  line-height:1.85;font-feature-settings:"palt";-webkit-font-smoothing:antialiased;
+}
+a{color:var(--green-deep);text-decoration:none;border-bottom:1px solid rgba(24,128,56,.28)}
+a:hover{border-bottom-color:var(--green)}
+
+
+.fxbar{
+  position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;
+  background:rgba(251,250,246,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--grid-strong);padding:11px 20px;
+}
+.fxbar .brandMini{display:flex;align-items:center;gap:9px;font-weight:900;font-size:15px;color:var(--ink);border:none}
+.fxbar .brandMini img{width:22px;height:22px;border-radius:6px}
+.fxbar .back{
+  margin-left:auto;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--grid-strong);background:#fff;border-radius:999px;padding:6px 14px;
+  transition:border-color .15s,color .15s;
+}
+.fxbar .back:hover{border-color:var(--ink);color:var(--ink)}
+
+
+.legal{max-width:760px;margin:0 auto;padding:64px 24px 40px}
+.legal h1{font-size:clamp(30px,5vw,44px);font-weight:900;line-height:1.25;letter-spacing:.01em;margin-bottom:8px}
+
+.legal h1 + p{
+  font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--ink-2);
+  line-height:1.9;margin-bottom:6px;
+}
+.legal h1 + p strong{font-weight:600;color:var(--ink)}
+.legal h2{
+  font-size:clamp(19px,2.6vw,23px);font-weight:900;line-height:1.5;
+  margin:52px 0 14px;padding-left:16px;position:relative;
+}
+.legal h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:5px;border-radius:3px;background:var(--green)}
+.legal h3{font-size:16px;font-weight:700;color:var(--green-deep);margin:28px 0 8px}
+.legal p{margin:0 0 16px;font-size:15px;color:#2b2e31}
+.legal strong{font-weight:700;color:var(--ink)}
+.legal ul,.legal ol{margin:0 0 18px;padding-left:1.4em}
+.legal li{margin-bottom:8px;font-size:15px;color:#2b2e31}
+.legal li::marker{color:var(--green)}
+.legal hr{border:none;border-top:1px solid var(--grid-strong);margin:36px 0}
+.legal blockquote{
+  border-left:3px solid var(--green);background:var(--green-bg);
+  border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 20px;
+  font-size:14px;color:var(--green-deep);
+}
+.legal blockquote p{margin:0;color:inherit}
+.legal code{
+  font-family:var(--mono);font-size:.86em;background:#f1efe8;
+  border:1px solid var(--grid);border-radius:5px;padding:1px 6px;color:#3b3e41;
+  word-break:break-all;
+}
+.legal a code{color:var(--green-deep)}
+
+
+.legal .tblWrap{overflow-x:auto;margin:0 0 22px;border:1px solid var(--grid-strong);border-radius:12px}
+.legal table{width:100%;border-collapse:collapse;background:#fff;font-size:14px;min-width:460px}
+.legal thead th{
+  background:#f8f7f2;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-2);
+  text-align:left;padding:12px 16px;border-bottom:1px solid var(--grid-strong);
+}
+.legal tbody td{padding:12px 16px;border-bottom:1px solid var(--grid);vertical-align:top;color:#2b2e31}
+.legal tbody tr:last-child td{border-bottom:none}
+
+
+footer{border-top:1px solid var(--grid-strong);background:#fff;margin-top:40px}
+.footInner{
+  max-width:760px;margin:0 auto;padding:34px 24px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.footInner .fl{display:flex;align-items:center;gap:11px}
+.footInner .fl img{width:34px;height:34px;border-radius:9px}
+.footInner .fl b{font-weight:900;font-size:15px}
+.footInner nav{display:flex;gap:18px;flex-wrap:wrap}
+.footInner nav a{font-size:13px;color:var(--ink-2);border:none}
+.footInner nav a:hover{color:var(--green-deep)}
+.copyright{max-width:760px;margin:0 auto;padding:0 24px 30px;font-family:var(--mono);font-size:11px;color:#b0aca0}
+
+.langRow{max-width:760px;margin:0 auto;padding:0 24px 14px;display:flex;gap:14px;flex-wrap:wrap}
+.langRow a{font-size:12.5px;color:var(--ink-2);border:none}
+.langRow a:hover{color:var(--green-deep)}
+</style>
+{% if page.lang == 'en' %}
+<script>
+
+(function(){
+  try{
+    if(sessionStorage.getItem('sw_pick')) return;
+    if(document.referrer && new URL(document.referrer).origin === location.origin) return;
+  }catch(_){}
+  var n = (navigator.language || '').toLowerCase(), d = null;
+  if(n.indexOf('ja') === 0)      d = 'ja';
+  else if(n.indexOf('ko') === 0) d = 'ko';
+  else if(n.indexOf('zh') === 0) d = 'zht';
+  else if(n.indexOf('es') === 0) d = 'es';
+  else if(n.indexOf('de') === 0) d = 'de';
+  else if(n.indexOf('fr') === 0) d = 'fr';
+  if(d) location.replace('/' + d + '/{{ legalBase }}/');
+})();
+</script>
+{% endif %}
+</head>
+<body>
+<div class="fxbar">
+  <a class="brandMini" href="{{ home }}"><img src="/img/icon.png" alt="" width="22" height="22">Sheet Widget</a>
+  <a class="back" href="{{ home }}">{{ homeLabel }}</a>
+</div>
+
+<main class="legal">
+  {{ content }}
+</main>
+
+<footer>
+  <div class="footInner">
+    <div class="fl"><img src="/img/icon.png" alt="Sheet Widget" width="34" height="34" loading="lazy"><b>Sheet Widget</b></div>
+    <nav>
+      {% case page.lang %}
+      {% when 'ja' %}
+        <a href="/ja/terms/">利用規約</a>
+        <a href="/ja/privacy/">プライバシーポリシー</a>
+        <a href="mailto:sheetwidget@gmail.com">お問い合わせ</a>
+      {% when 'ko' %}
+        <a href="/ko/terms/">이용약관</a>
+        <a href="/ko/privacy/">개인정보 처리방침</a>
+        <a href="mailto:sheetwidget@gmail.com">문의</a>
+      {% when 'zh-Hant' %}
+        <a href="/zht/terms/">服務條款</a>
+        <a href="/zht/privacy/">隱私權政策</a>
+        <a href="mailto:sheetwidget@gmail.com">聯絡我們</a>
+      {% when 'es' %}
+        <a href="/es/terms/">Términos de servicio</a>
+        <a href="/es/privacy/">Política de privacidad</a>
+        <a href="mailto:sheetwidget@gmail.com">Contacto</a>
+      {% when 'de' %}
+        <a href="/de/terms/">Nutzungsbedingungen</a>
+        <a href="/de/privacy/">Datenschutzrichtlinie</a>
+        <a href="mailto:sheetwidget@gmail.com">Kontakt</a>
+      {% when 'fr' %}
+        <a href="/fr/terms/">Conditions d’utilisation</a>
+        <a href="/fr/privacy/">Politique de confidentialité</a>
+        <a href="mailto:sheetwidget@gmail.com">Contact</a>
+      {% else %}
+        <a href="/terms/">Terms of Service</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="mailto:sheetwidget@gmail.com">Contact</a>
+      {% endcase %}
+    </nav>
+  </div>
+  <nav class="langRow" aria-label="Language">
+    <a href="/{{ legalBase }}/" hreflang="en">English</a>
+    <a href="/ja/{{ legalBase }}/" hreflang="ja">日本語</a>
+    <a href="/ko/{{ legalBase }}/" hreflang="ko">한국어</a>
+    <a href="/zht/{{ legalBase }}/" hreflang="zh-Hant">繁體中文</a>
+    <a href="/es/{{ legalBase }}/" hreflang="es">Español</a>
+    <a href="/de/{{ legalBase }}/" hreflang="de">Deutsch</a>
+    <a href="/fr/{{ legalBase }}/" hreflang="fr">Français</a>
+  </nav>
+  <div class="copyright">© 2026 Sheet Widget</div>
+</footer>
+
+<script>
+
+document.querySelectorAll('.legal table').forEach(function(t){
+  if(t.parentElement.classList.contains('tblWrap')) return;
+  var w=document.createElement('div');w.className='tblWrap';
+  t.parentNode.insertBefore(w,t);w.appendChild(t);
+});
+</script>
+</body>
+</html>

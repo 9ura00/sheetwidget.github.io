@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /picker/
+
+Sitemap: https://sheetwidget.com/sitemap.xml

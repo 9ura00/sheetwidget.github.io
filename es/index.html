@@ -1,0 +1,3750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Sheets como widget en la pantalla del iPhone｜Sheet Widget</title>
+<meta name="description" content="Pon cualquier rango de tus hojas de Google en la pantalla de inicio de tu iPhone. Formato intacto, siempre al día. Con gráficos.">
+<link rel="canonical" href="https://sheetwidget.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://sheetwidget.com/">
+<link rel="alternate" hreflang="en" href="https://sheetwidget.com/">
+<link rel="alternate" hreflang="ja" href="https://sheetwidget.com/ja/">
+<link rel="alternate" hreflang="ko" href="https://sheetwidget.com/ko/">
+<link rel="alternate" hreflang="zh-Hant" href="https://sheetwidget.com/zht/">
+<link rel="alternate" hreflang="es" href="https://sheetwidget.com/es/">
+<link rel="alternate" hreflang="de" href="https://sheetwidget.com/de/">
+<link rel="alternate" hreflang="fr" href="https://sheetwidget.com/fr/">
+<meta property="og:site_name" content="Sheet Widget">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Google Sheets como widget en la pantalla del iPhone｜Sheet Widget">
+<meta property="og:description" content="Pon cualquier rango de tus hojas de Google en la pantalla de inicio de tu iPhone. Formato intacto, siempre al día. Con gráficos.">
+<meta property="og:image" content="https://sheetwidget.com/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sheetwidget.com/es/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Sheets como widget en la pantalla del iPhone｜Sheet Widget">
+<meta name="twitter:description" content="Pon cualquier rango de tus hojas de Google en la pantalla de inicio de tu iPhone. Formato intacto, siempre al día. Con gráficos.">
+<meta name="twitter:image" content="https://sheetwidget.com/img/og.png">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Sheet Widget", "operatingSystem": "iOS", "applicationCategory": "UtilitiesApplication", "url": "https://sheetwidget.com/es/", "inLanguage": "es", "description": "Pon cualquier rango de tus hojas de Google en la pantalla de inicio de tu iPhone. Formato intacto, siempre al día. Con gráficos.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "installUrl": "https://apps.apple.com/app/id6795254414", "sameAs": ["https://apps.apple.com/app/id6795254414"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Tengo que compartir la hoja o publicarla en la web?", "acceptedAnswer": {"@type": "Answer", "text": "No. Solo eliges el rango que quieres mostrar y la hoja sigue siendo privada. Nunca se hace nada visible para otras personas."}}, {"@type": "Question", "name": "¿Pueden robarme la cuenta de Google por esto?", "acceptedAnswer": {"@type": "Answer", "text": "Sheet Widget solo puede leer la hoja que tú elegiste. Nunca maneja tu contraseña directamente: el acceso se limita a través del inicio de sesión oficial de Google (OAuth)."}}, {"@type": "Question", "name": "¿Elijo Free o Pro?", "acceptedAnswer": {"@type": "Answer", "text": "Si solo quieres una tabla en tu pantalla de inicio, con Free te alcanza. Si quieres varias hojas, ocultar la marca de agua, mostrar gráficos o copiar el valor de una celda, pásate a Pro — puedes probarlo gratis 7 días."}}, {"@type": "Question", "name": "¿De qué momento son los datos que muestra el widget?", "acceptedAnswer": {"@type": "Answer", "text": "Por cómo funciona iOS, la actualización automática ocurre cada 15–60 minutos aproximadamente. ¿Lo quieres al instante? El botón de actualización instantánea de Pro lo actualiza al momento."}}, {"@type": "Question", "name": "¿Funciona con fórmulas o la función IMAGE()?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, los resultados calculados y las imágenes se muestran tal cual. No necesitas reescribir fórmulas ni preparar ningún script para el widget."}}, {"@type": "Question", "name": "¿Se reproducen las casillas de verificación u otros formatos especiales?", "acceptedAnswer": {"@type": "Answer", "text": "Se reproducen valores, colores de fondo y texto, negrita/cursiva/subrayado/tachado, bordes, alineación, celdas combinadas y ajuste de texto. Algunos objetos, como las casillas de verificación, todavía no son compatibles."}}, {"@type": "Question", "name": "¿Por qué se abre la app al tocar una celda para copiarla?", "acceptedAnswer": {"@type": "Answer", "text": "iOS no permite que un widget escriba directamente en el portapapeles.\nLa app pasa a primer plano un instante para hacer la copia.\nSi eliges «Hoja de cálculo» como destino, llegarás a la hoja justo después de copiar."}}, {"@type": "Question", "name": "¿Se copia también el formato?", "acceptedAnswer": {"@type": "Answer", "text": "No, solo se copia el valor de texto de la celda.\nEl color de texto, el color de fondo, la negrita y otros formatos no se copian, y tampoco las imágenes mostradas con la función IMAGE.\nTocar una celda vacía no copia nada."}}]}</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="stylesheet" media="print" onload='this.media = "all"' href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
+<style>:root {
+  --paper: #fbfaf6;
+  --ink: #1b1d1f;
+  --ink-2: #5f6368;
+  --grid: #e8e6de;
+  --grid-strong: #d5d2c8;
+  --green: #188038;
+  --green-deep: #0d652d;
+  --green-bg: #e6f4ea;
+  --sel: #1a73e8;
+  --sel-bg: rgba(26,115,232,.08);
+  --dark: #0c1f16;
+  --mono: 'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans: 'Zen Kaku Gothic New',-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;
+  --cell-w: 72px;
+  --cell-h: 30px
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  scroll-padding-top: 80px
+}
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: clip;
+  font-feature-settings: "palt";
+  line-break: strict;
+  padding-left: 22px;
+  background-color: var(--paper);
+  background-image: linear-gradient(to right,rgba(232,230,222,.7) 1px,transparent 1px),linear-gradient(to bottom,rgba(232,230,222,.7) 1px,transparent 1px);
+  background-size: var(--cell-w) var(--cell-h);
+  background-position: 22px 80px
+}
+::selection {
+  background: var(--sel-bg)
+}
+img {
+  max-width: 100%
+}
+.topChrome {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin-left: -22px
+}
+.fxbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8f7f2;
+  border-bottom: 1px solid var(--grid-strong);
+  padding: 10px 16px
+}
+.fxbar .brandMini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none
+}
+@media(max-width:360px) {
+  .fxbar .brandMini .brandText {
+    display: none
+  }
+}
+.fxbar .brandMini img {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px
+}
+.fxbar nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-left: auto
+}
+.fxbar nav a {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-2);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background .15s,color .15s;
+  white-space: nowrap
+}
+.fxbar nav a:hover {
+  background: var(--green-bg);
+  color: var(--green-deep)
+}
+.fxbar nav .soon {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 999px;
+  padding: 6px 14px
+}
+.fxbar nav .soon:hover {
+  background: var(--green-deep);
+  color: #fff
+}
+.langBtn {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  border: 1px solid var(--grid-strong);
+  background: #fff;
+  color: var(--ink-2);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: border-color .15s,color .15s
+}
+.langBtn:hover {
+  border-color: var(--ink);
+  color: var(--ink)
+}
+select.langBtn {
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
+  text-align-last: center
+}
+@media(max-width:640px) {
+  .fxbar nav a:not(.soon) {
+    display: none
+  }
+}
+.gridStage {
+  position: relative;
+  overflow: clip;
+  min-height: 100svh;
+  display: flex;
+  align-items: center
+}
+@media(max-height:700px) {
+  .gridStage {
+    align-items: flex-start
+  }
+}
+.colHeads {
+  position: relative;
+  height: 24px;
+  display: flex;
+  padding-left: 22px;
+  pointer-events: none;
+  background: #f8f7f2;
+  border-bottom: 1px solid var(--grid-strong)
+}
+.colHeads::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  background: #f1efe6;
+  border-right: 1px solid var(--grid-strong)
+}
+.colHeads span {
+  width: var(--cell-w);
+  flex: none;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #9aa0a6;
+  line-height: 24px
+}
+.rowHeads {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 22px;
+  bottom: calc(44px + env(safe-area-inset-bottom,0px));
+  pointer-events: none;
+  z-index: 90;
+  overflow: clip;
+  background: #f8f7f2;
+  border-right: 1px solid var(--grid-strong)
+}
+.rowHeads span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--cell-h);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: #9aa0a6;
+  line-height: var(--cell-h)
+}
+.colScale {
+  display: flex;
+  transform-origin: 0 50%;
+  will-change: transform
+}
+.colScale span {
+  width: var(--cell-w);
+  flex: none;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #9aa0a6;
+  line-height: 24px
+}
+.rowScale {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 0;
+  will-change: transform
+}
+#roamSel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: calc(var(--cell-w)*2);
+  height: calc(var(--cell-h)*2);
+  border: 1.5px solid rgba(26,115,232,.35);
+  background: rgba(26,115,232,.045);
+  border-radius: 2px;
+  transition: transform 1.1s cubic-bezier(.65,0,.35,1),width 1.1s cubic-bezier(.65,0,.35,1),height 1.1s cubic-bezier(.65,0,.35,1);
+  will-change: transform
+}
+#roamSel::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 8px;
+  height: 8px;
+  background: var(--sel);
+  border: 1.5px solid #fff;
+  border-radius: 1px
+}
+#roamSel .ref {
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(26,115,232,.55);
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 6px;
+  white-space: nowrap;
+  opacity: .85
+}
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 96px 24px 92px
+}
+.hero .copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 5px rgba(24,128,56,.15)
+  }
+}
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px
+}
+.brandRow img {
+  width: clamp(48px,6vw,64px);
+  height: auto;
+  border-radius: 22%;
+  box-shadow: 0 2px 8px rgba(60,64,67,.2);
+  opacity: 0;
+  transform: scale(.5) rotate(-8deg);
+  animation: iconIn .7s cubic-bezier(.34,1.56,.64,1) .1s forwards
+}
+@keyframes iconIn {
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+h1 {
+  font-size: clamp(32px,10.5vw,84px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: .005em
+}
+.chw {
+  display: inline-block;
+  white-space: nowrap
+}
+.nw {
+  display: inline-block;
+  white-space: nowrap
+}
+.brk {
+  display: inline
+}
+h1 .ch {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.55em);
+  animation: chUp .6s cubic-bezier(.22,1,.36,1) forwards
+}
+@keyframes chUp {
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+.tagline {
+  font-size: clamp(20px,3.1vw,33px);
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 16px 0 20px
+}
+.tagline .u {
+  background: linear-gradient(transparent 68%,#b7e1c3 68%)
+}
+.lede {
+  font-size: clamp(14.5px,1.8vw,18.5px);
+  color: var(--ink-2);
+  max-width: 34em;
+  margin-bottom: 36px
+}
+.lede b {
+  color: var(--ink)
+}
+.ctaRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 15px 28px;
+  transition: transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s
+}
+.btn:active {
+  transform: scale(.97)
+}
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2),0 8px 24px -8px rgba(27,29,31,.5)
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,.2),0 14px 32px -8px rgba(27,29,31,.55)
+}
+.btn-store {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 16px;
+  padding: 15px 32px 16px 27px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2),0 8px 24px -8px rgba(0,0,0,.5)
+}
+.btn-store:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,.2),0 14px 32px -8px rgba(0,0,0,.55)
+}
+.btn-store svg {
+  width: 31px;
+  height: 31px;
+  flex: none
+}
+.btn-store .bs {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.18;
+  text-align: left
+}
+.btn-store .bs em {
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: .85;
+  letter-spacing: .02em
+}
+.btn-store .bs b {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: .01em
+}
+.btn-primary .as {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  opacity: .65;
+  display: block;
+  line-height: 1.2
+}
+.btn-ghost {
+  color: var(--ink);
+  border: 1.5px solid var(--grid-strong);
+  background: #fff
+}
+.btn-ghost:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px)
+}
+.stagePhone {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center
+}
+.widgetCard {
+  width: min(340px,86vw);
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 2px 6px rgba(60,64,67,.12),0 24px 60px -16px rgba(60,64,67,.35);
+  overflow: hidden;
+  transform: rotate(-1.6deg);
+  transition: transform .5s cubic-bezier(.34,1.56,.64,1);
+  border: 1px solid rgba(0,0,0,.05)
+}
+.widgetCard:hover {
+  transform: rotate(0) scale(1.02)
+}
+.widgetHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--green-bg);
+  padding: 9px 14px;
+  border-bottom: 1px solid #ceead6
+}
+.widgetHead .t {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--green-deep)
+}
+.widgetHead .brand {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: #7fa88b
+}
+.widgetTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono)
+}
+.widgetTable td {
+  border-bottom: 1px solid #f0efe9;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+  font-variant-numeric: tabular-nums
+}
+.widgetTable td:first-child {
+  text-align: left;
+  color: var(--ink-2);
+  font-size: 12px
+}
+.widgetTable td.up {
+  color: var(--green-deep)
+}
+.widgetTable td.flash {
+  animation: cellFlash 1.2s ease
+}
+@keyframes cellFlash {
+  0% {
+    background: #fff8dd
+  }
+  100% {
+    background: 0 0
+  }
+}
+.widgetFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: #9aa0a6
+}
+.widgetFoot .sync {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px
+}
+.widgetFoot .sync.spin svg {
+  animation: spin .8s linear
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg)
+  }
+}
+@media(max-width:880px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 56px 22px 84px;
+    min-height: 0;
+    gap: 52px
+  }
+  .stagePhone {
+    order: 2
+  }
+}
+.story {
+  position: relative;
+  height: 400vh;
+  height: 400svh
+}
+.story .stick {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: max(156px,13svh);
+  padding-bottom: calc(max(44px,3svh) + env(safe-area-inset-bottom,0px));
+  background-color: var(--paper);
+  background-image: linear-gradient(to right,rgba(232,230,222,.7) 1px,transparent 1px),linear-gradient(to bottom,rgba(232,230,222,.7) 1px,transparent 1px);
+  background-size: var(--cell-w) var(--cell-h)
+}
+.sheetCells {
+  position: absolute;
+  inset: 0;
+  pointer-events: none
+}
+.sheetCells .sc {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 6px 2px;
+  font-family: var(--mono);
+  font-size: clamp(11px,2.7vw,13px);
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #1b1d1f
+}
+.sheetCells .sc > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.sheetCells .sc.lbl {
+  justify-content: flex-start;
+  font-weight: 500
+}
+.sheetCells .sc.hd {
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  justify-content: center;
+  border-bottom: 3px double #1b1d1f
+}
+.sheetCells .sc.tot {
+  background: #e6f4ea;
+  font-weight: 700;
+  border-top-width: 2px
+}
+.sheetCells .sc.nt {
+  font-family: var(--sans);
+  font-size: clamp(10px,2.4vw,12px);
+  color: var(--ink-2)
+}
+.sheetCells .sc.lbl:not(.nt) {
+  border-right: 3px double #1b1d1f
+}
+.sheetCells .tblOutline {
+  position: absolute;
+  border: 2px solid #1b1d1f;
+  pointer-events: none
+}
+.storyLabel {
+  flex: none;
+  align-self: stretch;
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto 8px;
+  padding: 0 24px;
+  box-sizing: border-box
+}
+@media(max-width:640px) {
+  .storyLabel {
+    padding: 0 22px
+  }
+}
+.storyCap {
+  flex: none;
+  text-align: center;
+  z-index: 5;
+  font-weight: 900;
+  font-size: clamp(22px,3.6vw,34px);
+  padding: 0 24px;
+  min-height: calc(1.3em + 24px);
+  margin-bottom: clamp(12px,2.4svh,24px)
+}
+.storyCap .cap {
+  display: none
+}
+.storyCap .cap.on {
+  display: inline-block;
+  animation: capIn .5s cubic-bezier(.22,1,.36,1);
+  background: var(--paper);
+  border: 1px solid var(--grid-strong);
+  border-radius: 14px;
+  padding: 10px 22px 12px;
+  box-shadow: 0 8px 30px -12px rgba(60,64,67,.25)
+}
+@keyframes capIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px)
+  }
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+.storyCap .sub {
+  display: block;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 12px;
+  color: #9aa0a6;
+  margin-top: 8px
+}
+.storyStage {
+  position: relative;
+  width: min(440px,94vw)
+}
+.bigSheet {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--grid-strong);
+  font-family: var(--mono);
+  font-size: 12.5px;
+  will-change: transform,opacity
+}
+.bigSheet th {
+  background: #f8f7f2;
+  color: #9aa0a6;
+  font-weight: 500;
+  font-size: 10.5px;
+  border: 1px solid var(--grid);
+  padding: 5px 4px;
+  text-align: center
+}
+.bigSheet td {
+  border: 1px solid var(--grid);
+  padding: 8px 10px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap
+}
+.bigSheet td:nth-child(2) {
+  text-align: left;
+  color: var(--ink-2)
+}
+.bigSheet td.dim2 {
+  color: #c4c1b6
+}
+.storySel2 {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  border: 2.5px solid var(--sel);
+  background: var(--sel-bg);
+  border-radius: 2px;
+  opacity: 0;
+  will-change: transform,opacity
+}
+.storySel2::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 9px;
+  height: 9px;
+  background: var(--sel);
+  border: 1.5px solid #fff;
+  border-radius: 1px
+}
+.storySel2 .ref {
+  position: absolute;
+  top: -26px;
+  left: -2px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--sel);
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 8px
+}
+.phoneShell {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  height: 620px;
+  border-radius: 46px;
+  transform: translate(-50%,-50%);
+  background: linear-gradient(160deg,#3d6ff0 0,#5db2f7 45%,#7ed6c9 100%);
+  border: 10px solid var(--ink);
+  box-shadow: 0 30px 80px -20px rgba(27,29,31,.5);
+  opacity: 0;
+  will-change: transform,opacity
+}
+.phoneShell::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 86px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--ink)
+}
+.phoneShell .dockIcons {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  background: rgba(255,255,255,.28);
+  border-radius: 24px;
+  padding: 10px 16px;
+  backdrop-filter: blur(4px)
+}
+.phoneShell .dockIcons i {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: block
+}
+.phoneShell .dockIcons i:first-child {
+  background: linear-gradient(180deg,#5ec8f5,#1a73e8)
+}
+.phoneShell .dockIcons i:nth-child(2) {
+  background: linear-gradient(180deg,#8ce381,#34a853)
+}
+.phoneShell .dockIcons i:nth-child(3) {
+  background: linear-gradient(180deg,#fff,#e8eaed)
+}
+.widgetMorph {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 264px;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(60,64,67,.15),0 18px 50px -14px rgba(60,64,67,.4);
+  transform-origin: 0 0;
+  opacity: 0;
+  will-change: transform,opacity
+}
+.widgetMorph .widgetHead {
+  padding: 7px 12px
+}
+.widgetMorph table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono)
+}
+.widgetMorph td {
+  border-bottom: 1px solid #f0efe9;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: right;
+  font-variant-numeric: tabular-nums
+}
+.widgetMorph td:first-child {
+  text-align: left;
+  color: var(--ink-2);
+  font-size: 11px
+}
+.widgetMorph td.up {
+  color: var(--green-deep)
+}
+.storyHintWrap {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 5;
+  transition: opacity .3s ease
+}
+.storyHint {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #b9b5a7
+}
+.storyHint svg {
+  animation: bob 1.6s ease infinite
+}
+@keyframes bob {
+  50% {
+    transform: translateY(5px)
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .story {
+    height: auto
+  }
+  .story .stick {
+    position: static;
+    height: auto;
+    padding: 90px 0
+  }
+  .shotStage {
+    height: 720px
+  }
+  .shotSel {
+    opacity: 1
+  }
+  .shotPhone {
+    opacity: 1;
+    transform: translate(-50%,0)
+  }
+  .shotWidgetFinal {
+    opacity: 1
+  }
+  .storyHintWrap {
+    display: none
+  }
+}
+section {
+  position: relative
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 110px 32px
+}
+@media(max-width:640px) {
+  :root {
+    --cell-w: 48px;
+    --cell-h: 30px
+  }
+}
+@media(max-width:640px) {
+  .wrap {
+    padding: 80px 22px
+  }
+}
+.secLabel {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green-deep);
+  letter-spacing: .1em;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+.secLabel::before {
+  content: "";
+  width: 22px;
+  height: 1.5px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .6s cubic-bezier(.22,1,.36,1) .25s
+}
+.secLabel.in::before {
+  transform: none
+}
+h2 {
+  font-size: clamp(28px,4.6vw,51px);
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: .01em;
+  margin-bottom: 16px
+}
+h2 .ch {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.6em)
+}
+h2.played .ch {
+  animation: chUp .55s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay: var(--d,0s)
+}
+.secLede {
+  color: var(--ink-2);
+  font-size: 17px;
+  max-width: 36em
+}
+.rv {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)
+}
+.rv.in {
+  opacity: 1;
+  transform: none
+}
+.trustRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px
+}
+.trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-2);
+  border: 1px solid var(--grid-strong);
+  border-radius: 999px;
+  padding: 5px 13px;
+  background: #fff
+}
+.trust::before {
+  content: "✓";
+  color: var(--green);
+  font-weight: 600
+}
+.trust.hl {
+  background: var(--green-bg);
+  border-color: #7fc794;
+  color: var(--green-deep);
+  font-weight: 600;
+  animation: trustPulse 2.8s ease infinite
+}
+@keyframes trustPulse {
+  50% {
+    box-shadow: 0 0 0 5px rgba(24,128,56,.12)
+  }
+}
+.ucGrid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+  margin-top: 64px
+}
+@media(max-width:880px) {
+  .ucGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 52px auto 0
+  }
+}
+.ucCard {
+  text-align: left;
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--grid-strong);
+  padding: 26px 22px
+}
+.ucCard::after {
+  content: attr(data-ref);
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #b9b5a7;
+  font-weight: 600
+}
+.miniW {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 2px 6px rgba(60,64,67,.1),0 20px 44px -16px rgba(60,64,67,.3);
+  animation: floaty 6s ease-in-out infinite;
+  animation-delay: var(--fd,0s)
+}
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+  50% {
+    transform: translateY(-9px)
+  }
+}
+.miniW .mh {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px;
+  font-size: 12px;
+  font-weight: 700
+}
+.miniW .mh .sw {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  opacity: .6
+}
+.miniW.g .mh {
+  background: var(--green-bg);
+  color: var(--green-deep);
+  border-bottom: 1px solid #ceead6
+}
+.miniW.b .mh {
+  background: #e8f0fe;
+  color: #1a5cc8;
+  border-bottom: 1px solid #d2e3fc
+}
+.miniW.o .mh {
+  background: #fef3e0;
+  color: #a15c07;
+  border-bottom: 1px solid #fde3b8
+}
+.miniW table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono)
+}
+.miniW td {
+  border-bottom: 1px solid #f0efe9;
+  padding: 9px 14px;
+  font-size: 12.5px;
+  font-weight: 500;
+  text-align: right;
+  font-variant-numeric: tabular-nums
+}
+.miniW tr:last-child td {
+  border-bottom: none
+}
+.miniW td:first-child {
+  text-align: left;
+  color: var(--ink-2);
+  font-size: 11.5px;
+  font-family: var(--sans)
+}
+.miniW td.gd {
+  color: var(--green-deep)
+}
+.miniW td.bd {
+  color: #1a5cc8
+}
+.miniW td.od {
+  color: #a15c07
+}
+.ucCard h3 {
+  font-size: 17px;
+  font-weight: 900;
+  margin: 20px 0 4px
+}
+.ucCard > p {
+  font-size: 13px;
+  color: var(--ink-2)
+}
+.featSheet {
+  margin-top: 56px;
+  border: 1px solid var(--grid-strong);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(60,64,67,.08),0 20px 50px -24px rgba(60,64,67,.25)
+}
+.featSheet .fsHead {
+  display: grid;
+  grid-template-columns: 44px repeat(3,1fr);
+  background: #f8f7f2;
+  border-bottom: 1px solid var(--grid-strong)
+}
+.featSheet .fsHead div {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #9aa0a6;
+  text-align: center;
+  padding: 7px 0;
+  border-left: 1px solid var(--grid)
+}
+.featSheet .fsHead div:first-child {
+  border-left: none
+}
+.fsRow {
+  display: grid;
+  grid-template-columns: 44px repeat(3,1fr)
+}
+.fsRow .rn {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #9aa0a6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f7f2;
+  border-right: 1px solid var(--grid-strong);
+  border-bottom: 1px solid var(--grid)
+}
+.fCell {
+  padding: 30px 28px;
+  border-left: 1px solid var(--grid);
+  border-bottom: 1px solid var(--grid);
+  position: relative;
+  transition: background .2s;
+  cursor: default;
+  opacity: 0;
+  transform: translateY(18px)
+}
+.featSheet.played .fCell {
+  animation: cellIn .6s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay: var(--d,0s)
+}
+@keyframes cellIn {
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+.fCell:hover {
+  background: var(--sel-bg);
+  box-shadow: inset 0 0 0 2px var(--sel)
+}
+.fCell:hover .cref {
+  opacity: 1;
+  transform: none
+}
+.cref {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--sel);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: .2s
+}
+.fCell h3 {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  line-height: 1.4
+}
+.fCell p {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.75
+}
+.fCell .big {
+  font-family: var(--mono);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--green-deep);
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: -.02em
+}
+@media(max-width:880px) {
+  .featSheet .fsHead {
+    display: none
+  }
+  .fsRow .rn {
+    display: none
+  }
+  .fsRow {
+    grid-template-columns: repeat(2,1fr)
+  }
+  .fCell {
+    padding: 22px 18px
+  }
+  .cref {
+    opacity: 1;
+    transform: none
+  }
+}
+@media(max-width:560px) {
+  .fsRow {
+    grid-template-columns: 1fr
+  }
+  .fCell {
+    border-left: none
+  }
+}
+@media(hover:none) {
+  .cref {
+    opacity: 1;
+    transform: none
+  }
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 26px;
+  margin-top: 64px
+}
+@media(max-width:880px) {
+  .steps {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+.step {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--grid-strong);
+  padding: 26px 24px
+}
+.step::after {
+  content: attr(data-ref);
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #b9b5a7;
+  font-weight: 600
+}
+.step .num {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-deep);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px
+}
+.step .num::after {
+  content: "";
+  flex: 1;
+  height: 1.5px;
+  background: var(--grid-strong)
+}
+.step h3 {
+  font-size: 19px;
+  font-weight: 900;
+  margin-bottom: 6px
+}
+.step p {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  margin-bottom: 22px;
+  min-height: 3.4em
+}
+.shot {
+  border-radius: 26px;
+  overflow: hidden;
+  border: 6px solid var(--ink);
+  box-shadow: 0 2px 6px rgba(60,64,67,.15),0 26px 60px -20px rgba(60,64,67,.45);
+  background: var(--ink);
+  transition: transform .4s cubic-bezier(.22,1,.36,1)
+}
+.step:hover .shot {
+  transform: translateY(-8px)
+}
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(.1);
+  transform: scale(1.05);
+  transition: filter 1.1s ease .25s,transform 1.1s cubic-bezier(.22,1,.36,1) .25s
+}
+.step.in .shot img {
+  filter: none;
+  transform: none
+}
+.feeGrid {
+  position: relative;
+  margin-top: 56px
+}
+.fc {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  font-size: 13.5px;
+  color: var(--ink);
+  text-align: center;
+  background: var(--paper);
+  line-height: 1.35;
+  border: 1px solid var(--grid-strong)
+}
+.fc.hd {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .04em;
+  background: var(--green-bg);
+  color: var(--green-deep);
+  white-space: nowrap
+}
+.fc.hd.pro {
+  color: #fff;
+  background: linear-gradient(135deg,#188038,#0d652d);
+  font-weight: 800;
+  letter-spacing: .08em
+}
+.fc.lbl {
+  font-weight: 500
+}
+.fc.ck,
+.fc.dash,
+.fc.txt {
+  font-family: var(--mono)
+}
+.fc.ck {
+  color: var(--green-deep);
+  font-weight: 600;
+  font-size: 15px;
+  opacity: 0;
+  transform: scale(.3)
+}
+.feeGrid.play .fc.ck {
+  animation: ckPop .5s cubic-bezier(.34,1.56,.64,1) forwards;
+  animation-delay: var(--d,0s)
+}
+@keyframes ckPop {
+  to {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+.fc.dash {
+  color: #c8ccd0;
+  font-size: 15px
+}
+.fc.txt {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  font-weight: 500
+}
+.fc.txt.pro {
+  color: var(--green-deep);
+  font-weight: 700
+}
+.fc.pro:not(.hd) {
+  background: #eef6f0
+}
+@media(max-width:560px) {
+  .fc {
+    padding: 4px 8px;
+    font-size: 12px
+  }
+}
+.pipe {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto
+}
+.node {
+  text-align: center;
+  flex: none
+}
+.node .ic {
+  width: 84px;
+  height: 84px;
+  border-radius: 6px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--grid-strong)
+}
+.node .ic img {
+  width: 46px;
+  height: 46px;
+  border-radius: 11px
+}
+.node p {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  font-family: var(--mono)
+}
+.wire {
+  flex: 1;
+  height: 2px;
+  position: relative;
+  margin: 0 18px 40px;
+  background: var(--grid-strong)
+}
+.wire .dot {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px rgba(24,128,56,.45);
+  opacity: 0
+}
+.pipe.in .wire .dot {
+  animation: flow 2.6s cubic-bezier(.45,0,.55,1) 2.6s infinite
+}
+.pipe.in .wire .dot:nth-child(2) {
+  animation-delay: 3.9s
+}
+@keyframes flow {
+  0% {
+    left: 0;
+    opacity: 0
+  }
+  12% {
+    opacity: 1
+  }
+  88% {
+    opacity: 1
+  }
+  100% {
+    left: calc(100% - 8px);
+    opacity: 0
+  }
+}
+.midSrv {
+  flex: none;
+  text-align: center;
+  position: relative;
+  max-width: 150px;
+  margin: 0 0 40px;
+  overflow: hidden;
+  padding: 0 6px;
+  transition: max-width .55s cubic-bezier(.7,0,.3,1) 1.9s,opacity .45s ease 1.9s,transform .45s ease 1.9s,margin .55s ease 1.9s,padding .55s ease 1.9s
+}
+.midSrv .ic {
+  width: 70px;
+  height: 70px;
+  border-radius: 6px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1.5px dashed #b9b5a7
+}
+.midSrv p {
+  font-size: 11px;
+  color: #9aa0a6;
+  font-family: var(--mono);
+  white-space: nowrap
+}
+.midSrv .strike {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 34px;
+  height: 3px;
+  border-radius: 2px;
+  background: #e5484d;
+  box-shadow: 0 0 14px rgba(229,72,77,.5);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s cubic-bezier(.7,0,.3,1) 1.15s
+}
+.pipe.in .midSrv .strike {
+  transform: scaleX(1)
+}
+.pipe.in .midSrv {
+  max-width: 0;
+  opacity: 0;
+  transform: scale(.7);
+  margin: 0 0 40px;
+  padding: 0
+}
+.node .ic {
+  position: relative
+}
+.node .lock {
+  position: absolute;
+  right: -7px;
+  bottom: -7px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #7fc794;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(24,128,56,.35);
+  opacity: 0;
+  transform: scale(.3);
+  transition: opacity .4s cubic-bezier(.34,1.56,.64,1) 2.7s,transform .4s cubic-bezier(.34,1.56,.64,1) 2.7s
+}
+.pipe.in .node .lock {
+  opacity: 1;
+  transform: none
+}
+.factsRow {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap
+}
+.fact {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-2);
+  border: 1px solid var(--grid-strong);
+  border-radius: 999px;
+  padding: 7px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fff;
+  box-sizing: border-box;
+  max-width: 100%
+}
+.fact::before {
+  content: "✓";
+  color: var(--green);
+  font-weight: 600
+}
+.lockVign {
+  margin-top: 78px;
+  text-align: center
+}
+.lockVign .doc {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--grid-strong);
+  border-radius: 6px;
+  padding: 18px 26px
+}
+.lockVign.in .doc {
+  animation: ringFlash 1.1s ease 1.15s
+}
+@keyframes ringFlash {
+  25% {
+    box-shadow: 0 0 0 5px rgba(24,128,56,.25),0 0 30px rgba(24,128,56,.2);
+    border-color: var(--green)
+  }
+  100% {
+    box-shadow: none
+  }
+}
+.lockVign .doc .dic {
+  flex: none
+}
+.lockVign .doc b {
+  font-size: 14.5px;
+  color: var(--ink)
+}
+.lockVign .pstate {
+  display: inline-block;
+  margin-left: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--green-deep);
+  border: 1px solid #7fc794;
+  border-radius: 999px;
+  padding: 2px 12px;
+  background: var(--green-bg)
+}
+.lockVign .padl {
+  position: absolute;
+  top: -15px;
+  right: -13px;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: #7fc794;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(24,128,56,.3)
+}
+.lockVign .padl .shk {
+  transform: translateY(-3.5px);
+  transform-origin: center;
+  transition: transform .28s cubic-bezier(.7,0,.3,1.4) .85s
+}
+.lockVign.in .padl .shk {
+  transform: translateY(0)
+}
+.lockVign .okChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--green);
+  border-radius: 999px;
+  padding: 7px 18px;
+  opacity: 0;
+  transform: translateY(10px) scale(.75);
+  transition: opacity .45s cubic-bezier(.34,1.56,.64,1) 1.55s,transform .45s cubic-bezier(.34,1.56,.64,1) 1.55s
+}
+.lockVign .okChip::before {
+  content: "✓"
+}
+.lockVign.in .okChip {
+  opacity: 1;
+  transform: none
+}
+.lockVign .lockCap {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--ink-2)
+}
+.zeroRow {
+  margin-top: 80px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  text-align: center
+}
+.zeroRow .zero {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: clamp(90px,17vw,190px);
+  line-height: 1;
+  color: var(--green);
+  letter-spacing: -.04em
+}
+.zeroRow .zl {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: left;
+  line-height: 1.6
+}
+.zeroRow .zl small {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-2);
+  font-weight: 400
+}
+@media(max-width:640px) {
+  .pipe {
+    flex-direction: column;
+    gap: 8px
+  }
+  .wire {
+    width: 2px;
+    height: 64px;
+    margin: 0 0 8px;
+    flex: none
+  }
+  .pipe.in .wire .dot {
+    animation: flowV 2.6s cubic-bezier(.45,0,.55,1) 2.6s infinite;
+    left: -3px;
+    top: 0
+  }
+  .pipe.in .wire .dot:nth-child(2) {
+    animation-delay: 3.9s
+  }
+  @keyframes flowV {
+    0% {
+      top: 0;
+      opacity: 0
+    }
+    12% {
+      opacity: 1
+    }
+    88% {
+      opacity: 1
+    }
+    100% {
+      top: calc(100% - 8px);
+      opacity: 0
+    }
+  }
+  .midSrv {
+    margin: 0 0 8px;
+    max-width: none;
+    max-height: 130px;
+    transition: max-height .55s cubic-bezier(.7,0,.3,1) 1.9s,opacity .45s ease 1.9s,transform .45s ease 1.9s,margin .55s ease 1.9s
+  }
+  .pipe.in .midSrv {
+    max-width: none;
+    max-height: 0;
+    margin: 0;
+    opacity: 0;
+    transform: scale(.7)
+  }
+}
+.faqList {
+  margin-top: 50px;
+  max-width: 760px
+}
+.faqList details {
+  border: 1px solid var(--grid-strong);
+  background: #fff;
+  margin-bottom: -1px;
+  padding: 0 18px
+}
+.faqList summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 6px;
+  font-size: 16px;
+  font-weight: 700;
+  transition: color .15s
+}
+.faqList summary:hover {
+  color: var(--green-deep)
+}
+.faqList summary::-webkit-details-marker {
+  display: none
+}
+.faqList summary .q {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--green-deep);
+  font-weight: 600;
+  flex: none
+}
+.faqList summary .tgl {
+  margin-left: auto;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  position: relative
+}
+.faqList summary .tgl::after,
+.faqList summary .tgl::before {
+  content: "";
+  position: absolute;
+  background: var(--ink-2);
+  transition: transform .25s;
+  top: 10px;
+  left: 3px;
+  width: 16px;
+  height: 2px
+}
+.faqList summary .tgl::after {
+  transform: rotate(90deg)
+}
+.faqList details[open] summary .tgl::after {
+  transform: rotate(0)
+}
+.faqList .a {
+  padding: 0 6px 26px 48px;
+  font-size: 14px;
+  color: var(--ink-2);
+  max-width: 38em
+}
+footer {
+  padding-bottom: calc(80px + env(safe-area-inset-bottom,0px))
+}
+.sheetTabs {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 85;
+  height: calc(44px + env(safe-area-inset-bottom,0px));
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  padding: 0 10px env(safe-area-inset-bottom,0);
+  border-top: 1px solid var(--grid-strong);
+  background: #f8f7f2
+}
+.sheetTabs a {
+  font-family: var(--mono);
+  font-size: clamp(10px,2.9vw,11.5px);
+  padding: 0 clamp(6px,2.4vw,20px);
+  color: #9aa0a6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 8px 0 0;
+  white-space: nowrap;
+  text-decoration: none;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background .15s,color .15s
+}
+.sheetTabs a[data-store-cta] {
+  flex: 0 0 auto
+}
+.sheetTabs a:hover {
+  background: #eeede6;
+  color: var(--ink)
+}
+.sheetTabs a.on {
+  background: #fff;
+  color: var(--green-deep);
+  font-weight: 600;
+  box-shadow: inset 0 1.5px 0 var(--green)
+}
+.footGrid {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 56px 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap
+}
+.footBrand {
+  display: flex;
+  align-items: center;
+  gap: 14px
+}
+.footBrand img {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px
+}
+.footBrand .n {
+  font-weight: 900;
+  font-size: 17px
+}
+.footCols {
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap
+}
+.footCols h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #9aa0a6;
+  font-weight: 600;
+  letter-spacing: .08em;
+  margin-bottom: 14px
+}
+.footCols a {
+  display: block;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  text-decoration: none;
+  margin-bottom: 9px
+}
+.footCols a:hover {
+  color: var(--green-deep)
+}
+.copyright {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #b0aca0
+}
+@media(prefers-reduced-motion:reduce) {
+  *,
+  ::after,
+  ::before {
+    animation-duration: NaNs!important;
+    transition-duration: NaNs!important
+  }
+  html {
+    scroll-behavior: auto
+  }
+  .fCell,
+  .rv,
+  h1 .ch,
+  h2 .ch {
+    opacity: 1!important;
+    transform: none!important
+  }
+}
+.shotStage {
+  position: relative;
+  z-index: 3;
+  width: min(540px,92vw,calc(var(--stage-max-h,600px) * .75));
+  height: min(720px,var(--stage-max-h,600px));
+  margin: 0 auto;
+  align-self: center
+}
+.shotSel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  border: 2px solid var(--sel);
+  background: rgba(26,115,232,.13);
+  opacity: 0
+}
+.shotSel::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--sel);
+  border: 1.5px solid #fff
+}
+.shotSel .ref {
+  position: absolute;
+  right: -3px;
+  bottom: -30px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--sel);
+  color: #fff;
+  padding: 2px 9px;
+  border-radius: 4px;
+  white-space: nowrap
+}
+.shotPhone {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%,14%);
+  width: min(378px,82vw,calc((min(720px,var(--stage-max-h,600px)) - 28px) * .79));
+  opacity: 0;
+  mask-image: linear-gradient(to bottom,#000 0%,#000 85%,transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom,#000 0%,#000 85%,transparent 100%)
+}
+.phScreen {
+  position: relative;
+  width: 100%
+}
+.phScreen > img {
+  width: 100%;
+  height: auto;
+  display: block
+}
+.shotWidgetFinal {
+  position: absolute;
+  left: 13.03%;
+  top: 21.33%;
+  width: 73.95%;
+  opacity: 0
+}
+.shotWidgetFinal img {
+  width: 100%;
+  height: auto;
+  display: block
+}
+.shotWidget {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  height: auto;
+  z-index: 3;
+  filter: drop-shadow(0 12px 26px rgba(27,29,31,.45))
+}</style>
+
+<script>window.__SW_LANG = "es"</script>
+
+</head>
+<body>
+
+
+<div class="topChrome">
+  <div class="fxbar">
+    <a class="brandMini" href="#hero"><img src="/img/icon.png" alt="" width="20" height="20"><span class="brandText">Sheet Widget</span></a>
+    <nav>
+      <a href="#pricing" data-i="navFeatures">Funciones</a>
+      <a class="soon" data-store-cta href="mailto:sheetwidget@gmail.com?subject=Sheet%20Widget" data-i="navSoon">Próximamente</a>
+      <select class="langBtn" id="langSel" aria-label="Language">
+        <option value="ja">日本語</option>
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+        <option value="zht">繁體中文</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+      </select>
+    </nav>
+  </div>
+  <div class="colHeads" id="colHeads" aria-hidden="true"></div>
+</div>
+
+
+<main>
+<div class="gridStage">
+  <div class="rowHeads" id="rowHeads" aria-hidden="true"></div>
+  <div id="roamSel" aria-hidden="true"><span class="ref">B2:C4</span></div>
+
+  <header class="hero" id="hero">
+    <div class="copy">
+      <div class="brandRow">
+        <img src="/img/icon.png" alt="Sheet Widget アイコン" width="64" height="64">
+        <h1 id="brandTitle">Sheet Widget</h1>
+      </div>
+      <p class="tagline" data-i="tagline"><span class="nw">Tus hojas de Google,</span> <span class="u nw">en tu pantalla de inicio.</span></p>
+      <p class="lede" data-i="lede">Esa hoja de cálculo que consultas diez veces al día: ponla en tu pantalla de inicio y <b>échale un vistazo</b>. Bordes y colores intactos, <b>siempre al día</b>.</p>
+      <div class="ctaRow">
+        <a class="btn btn-primary" data-store-cta href="mailto:sheetwidget@gmail.com?subject=Sheet%20Widget">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><span data-i="ctaMain">Avísame en el lanzamiento</span><span class="as" data-i="ctaSub">App Store — Próximamente</span></span>
+        </a>
+      </div>
+    </div>
+  </header>
+</div>
+
+
+<section class="story" id="story">
+  <div class="stick">
+    
+    <div class="sheetCells" id="sheetCells" aria-label="Household Budget"></div>
+    <div class="shotSel" id="shotSel" aria-hidden="true"><span class="ref"></span></div>
+
+    
+    <p class="secLabel rv storyLabel">PREVIEW</p>
+
+    <div class="storyCap">
+      <span class="cap on" id="cap1"><span data-i="cap1">Toma una hoja de cálculo</span></span>
+      <span class="cap" id="cap2"><span data-i="cap2">Selecciona un rango</span></span>
+      <span class="cap" id="cap3"><span data-i="cap3">Se convierte en widget</span></span>
+    </div>
+
+    <div class="shotStage" id="shotStage">
+      <div class="shotPhone" id="shotPhone">
+        <div class="phScreen">
+          <img src="/img/phone-home.webp" alt="" width="806" height="1008" fetchpriority="high" decoding="async">
+          <div class="shotWidgetFinal" id="shotWidgetFinal">
+            <img src="/img/widget-budget.webp" alt="Sheet Widget" width="597" height="278">
+          </div>
+        </div>
+      </div>
+      <img class="shotWidget" id="shotWidget" src="/img/widget-budget.webp" alt="">
+    </div>
+
+    
+    <div class="storyHintWrap" id="storyHint">
+      <div class="storyHint">
+        <span data-i="scrollHint">desplázate</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="pricing">
+  <div class="wrap">
+    <p class="secLabel rv">FEATURES</p>
+    <h2 class="split" data-i="priceH">Empieza gratis. Pasa a Pro si lo necesitas.</h2>
+    <p class="secLede rv" data-i="priceLede">Lo básico es gratis para siempre. Prueba Pro gratis 7 días.</p>
+
+    
+    <div class="feeGrid" id="feeGrid">
+      <div class="fc hd" data-i="prFeatCol">Función</div><div class="fc hd free">FREE</div><div class="fc hd pro">PRO</div>
+      <div class="fc lbl" data-i="pr1">Hoja de cálculo como widget</div><div class="fc ck" style="* {
+  --d: 0.05s
+}">✓</div><div class="fc ck pro" style="* {
+  --d: 0.10s
+}">✓</div>
+      <div class="fc lbl" data-i="pr2">Cuatro tamaños de widget</div><div class="fc ck" style="* {
+  --d: 0.15s
+}">✓</div><div class="fc ck pro" style="* {
+  --d: 0.20s
+}">✓</div>
+      <div class="fc lbl" data-i="pr3">Bordes, colores y formato</div><div class="fc ck" style="* {
+  --d: 0.25s
+}">✓</div><div class="fc ck pro" style="* {
+  --d: 0.30s
+}">✓</div>
+      <div class="fc lbl" data-i="pr4">Actualización automática</div><div class="fc ck" style="* {
+  --d: 0.35s
+}">✓</div><div class="fc ck pro" style="* {
+  --d: 0.40s
+}">✓</div>
+      <div class="fc lbl" data-i="pr13">Actualización manual</div><div class="fc dash">—</div><div class="fc ck pro" style="* {
+  --d: 0.45s
+}">✓</div>
+      <div class="fc lbl" data-i="pr7">Número de widgets</div><div class="fc txt" data-i="pr7f">1</div><div class="fc txt pro" data-i="pr7p">Ilimitados</div>
+      <div class="fc lbl" data-i="pr5">Colores de tema y ajustes finos</div><div class="fc dash">—</div><div class="fc ck pro" style="* {
+  --d: 0.55s
+}">✓</div>
+      <div class="fc lbl" data-i="pr6">Ocultar la marca de agua</div><div class="fc dash">—</div><div class="fc ck pro" style="* {
+  --d: 0.65s
+}">✓</div>
+      <div class="fc lbl" data-i="pr9">Varias cuentas de Google</div><div class="fc dash">—</div><div class="fc ck pro" style="* {
+  --d: 0.75s
+}">✓</div>
+      <div class="fc lbl" data-i="pr12">Gráficos como widgets</div><div class="fc dash">—</div><div class="fc ck pro" style="* {
+  --d: 0.85s
+}">✓</div>
+      <div class="fc lbl" data-i="pr10">Avisos de cambios</div><div class="fc dash">—</div><div class="fc ck pro" style="* {
+  --d: 0.95s
+}">✓</div>
+      <div class="fc lbl" data-i="pr11">Copiar el valor de la celda tocada</div><div class="fc dash">—</div><div class="fc ck pro" style="* {
+  --d: 1.05s
+}">✓</div>
+    </div>
+  </div>
+</section>
+
+
+<section id="privacy">
+  <div class="wrap">
+    <p class="secLabel rv">PRIVACY BY DESIGN</p>
+    <h2 class="split" data-i="privH">Directo de Google a tu iPhone</h2>
+    <p class="secLede rv" data-i="privLede">Sheet Widget es una app independiente sin backend. Las credenciales viven solo en el Keychain de tu iPhone y tus datos nunca se envían a nosotros ni a nadie. Sin anuncios, sin rastreo.</p>
+
+    <div class="pipe rv" id="securePipe">
+      <div class="node">
+        <div class="ic">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" fill="#188038"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18" stroke="#fff" stroke-width="1.2"/></svg>
+        </div>
+        <p>Google Sheets</p>
+      </div>
+      <div class="wire"><span class="dot"></span><span class="dot"></span></div>
+      <div class="midSrv" aria-hidden="true">
+        <div class="ic">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="7" rx="1.5" stroke="#8b95a1" stroke-width="1.6"/><rect x="4" y="13" width="16" height="7" rx="1.5" stroke="#8b95a1" stroke-width="1.6"/><circle cx="7.5" cy="7.5" r="1" fill="#8b95a1"/><circle cx="7.5" cy="16.5" r="1" fill="#8b95a1"/></svg>
+        </div>
+        <p data-i="midSrv">servidor de terceros</p>
+        <span class="strike"></span>
+      </div>
+      <div class="wire"><span class="dot"></span><span class="dot"></span></div>
+      <div class="node">
+        <div class="ic"><img src="/img/icon.png" alt="Sheet Widget" width="48" height="48" loading="lazy" decoding="async">
+          <span class="lock">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" fill="#0c1f16"/><path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="#0c1f16" stroke-width="2.4" fill="none"/></svg>
+          </span>
+        </div>
+        <p data-i="yourPhone">tu iPhone</p>
+      </div>
+    </div>
+
+    <div class="zeroRow rv">
+      <span class="zero" id="zeroCount">0</span>
+      <span class="zl"><span data-i="zeroL">servidores de por medio</span><small data-i="zeroS">sin servidores por diseño</small></span>
+    </div>
+
+    <div class="lockVign rv">
+      <div class="doc">
+        <span class="dic">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" fill="#188038"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18" stroke="#fff" stroke-width="1.2"/></svg>
+        </span>
+        <span><b data-i="lockSheetName">Hoja de balance</b><span class="pstate" data-i="lockState">Privada</span></span>
+        <span class="padl">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+            <path class="shk" d="M8 11V7a4 4 0 1 1 8 0v4" stroke="#0c1f16" stroke-width="2.6" fill="none"/>
+            <rect x="5" y="11" width="14" height="9" rx="2" fill="#0c1f16"/>
+          </svg>
+        </span>
+      </div>
+      <br>
+      <span class="okChip" data-i="lockOk">Aun así se muestra como widget</span>
+      <span class="lockCap" data-i="lockCap">Sin «publicar en la web», sin enlaces públicos.</span>
+    </div>
+
+    <div class="factsRow rv">
+      <span class="fact" data-i="fact1">Inicio de sesión con Google OAuth 2.0 — nunca vemos tu contraseña</span>
+      <span class="fact" data-i="fact2">Basado en la API oficial de Google Sheets</span>
+      <span class="fact" data-i="fact3">HTTPS directo con Google — nada en medio</span>
+    </div>
+
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="secLabel rv">FAQ</p>
+    <h2 class="split" data-i="faqH">¿Tienes dudas?</h2>
+    <div class="faqList rv">
+      <details>
+        <summary><span class="q">Q1</span><span data-i="q1">¿Tengo que compartir la hoja o publicarla en la web?</span><span class="tgl"></span></summary>
+        <p class="a" data-i="a1">No. Solo eliges el rango que quieres mostrar y la hoja sigue siendo privada. Nunca se hace nada visible para otras personas.</p>
+      </details>
+      <details>
+        <summary><span class="q">Q2</span><span data-i="q2">¿Pueden robarme la cuenta de Google por esto?</span><span class="tgl"></span></summary>
+        <p class="a" data-i="a2">Sheet Widget solo puede leer la hoja que tú elegiste. Nunca maneja tu contraseña directamente: el acceso se limita a través del inicio de sesión oficial de Google (OAuth).</p>
+      </details>
+      <details>
+        <summary><span class="q">Q3</span><span data-i="q3">¿Elijo Free o Pro?</span><span class="tgl"></span></summary>
+        <p class="a" data-i="a3">Si solo quieres una tabla en tu pantalla de inicio, con Free te alcanza. Si quieres varias hojas, ocultar la marca de agua, mostrar gráficos o copiar el valor de una celda, pásate a Pro — puedes probarlo gratis 7 días.</p>
+      </details>
+      <details>
+        <summary><span class="q">Q4</span><span data-i="q4">¿De qué momento son los datos que muestra el widget?</span><span class="tgl"></span></summary>
+        <p class="a" data-i="a4">Por cómo funciona iOS, la actualización automática ocurre cada 15–60 minutos aproximadamente. ¿Lo quieres al instante? El botón de actualización instantánea de Pro lo actualiza al momento.</p>
+      </details>
+      <details>
+        <summary><span class="q">Q5</span><span data-i="q5">¿Funciona con fórmulas o la función IMAGE()?</span><span class="tgl"></span></summary>
+        <p class="a" data-i="a5">Sí, los resultados calculados y las imágenes se muestran tal cual. No necesitas reescribir fórmulas ni preparar ningún script para el widget.</p>
+      </details>
+      <details>
+        <summary><span class="q">Q6</span><span data-i="q6">¿Se reproducen las casillas de verificación u otros formatos especiales?</span><span class="tgl"></span></summary>
+        <p class="a" data-i="a6">Se reproducen valores, colores de fondo y texto, negrita/cursiva/subrayado/tachado, bordes, alineación, celdas combinadas y ajuste de texto. Algunos objetos, como las casillas de verificación, todavía no son compatibles.</p>
+      </details>
+      <details>
+        <summary><span class="q">Q7</span><span data-i="q7">¿Por qué se abre la app al tocar una celda para copiarla?</span><span class="tgl"></span></summary>
+        <p class="a" data-i="a7">iOS no permite que un widget escriba directamente en el portapapeles.<br>La app pasa a primer plano un instante para hacer la copia.<br>Si eliges «Hoja de cálculo» como destino, llegarás a la hoja justo después de copiar.</p>
+      </details>
+      <details>
+        <summary><span class="q">Q8</span><span data-i="q8">¿Se copia también el formato?</span><span class="tgl"></span></summary>
+        <p class="a" data-i="a8">No, solo se copia el valor de texto de la celda.<br>El color de texto, el color de fondo, la negrita y otros formatos no se copian, y tampoco las imágenes mostradas con la función IMAGE.<br>Tocar una celda vacía no copia nada.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<section id="getit">
+  <div class="wrap" style="* {
+  text-align: center
+}">
+    <h2 class="split" data-i="endH">Ponla en tu pantalla de inicio.</h2>
+    <div class="rv" style="* {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px
+}">
+      <a class="btn btn-primary" data-store-cta href="mailto:sheetwidget@gmail.com?subject=Sheet%20Widget">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><span data-i="ctaMain">Avísame en el lanzamiento</span><span class="as" data-i="ctaSub">App Store — Próximamente</span></span>
+      </a>
+    </div>
+    <p class="rv" data-i="endTrial" style="* {
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--green-deep)
+}">Gratis, y Pro con 7 días de prueba.</p>
+  </div>
+</section>
+</main>
+
+
+
+
+<footer>
+  <nav class="sheetTabs" aria-label="Site navigation">
+    <a class="on" href="#hero" data-i="tabHome">Inicio</a><a href="#story" data-i="navPreview">Vista previa</a><a href="#pricing" data-i="navFeatures">Funciones</a><a href="#privacy" data-i="navPrivacy">Privacidad</a><a href="#faq" data-i="navFaq">Q&A</a><a href="#" data-store-cta>+</a>
+  </nav>
+  <div class="footGrid">
+    <div class="footBrand">
+      <img src="/img/icon.png" alt="Sheet Widget アイコン" width="40" height="40" loading="lazy" decoding="async">
+      <div class="n">Sheet Widget</div>
+    </div>
+    <div class="footCols">
+      <div>
+        <h3>LEGAL</h3>
+        <a href="/es/terms/" data-legal="terms" data-i="lgTerms">Términos de servicio</a>
+        <a href="/es/privacy/" data-legal="privacy" data-i="lgPrivacy">Política de privacidad</a>
+      </div>
+      <div>
+        <h3>CONTACT</h3>
+        <a href="mailto:sheetwidget@gmail.com">sheetwidget@gmail.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Sheet Widget</div>
+</footer>
+
+<script>let vpW = innerWidth, vpH = innerHeight, majorRz = true;
+
+addEventListener("resize", () => {
+    majorRz = innerWidth !== vpW || Math.abs(innerHeight - vpH) > 150;
+    if (majorRz) {
+        vpW = innerWidth;
+        vpH = innerHeight;
+    }
+});
+
+function forceRelayout() {
+    vpW = -1;
+    dispatchEvent(new Event("resize"));
+}
+
+function syncCellSize() {
+    const avail = innerWidth - 22;
+    const targetW = innerWidth < 640 ? 64 : 72;
+    const cols = Math.max(6, Math.round(avail / targetW));
+    document.documentElement.style.setProperty("--cell-w", avail / cols + "px");
+}
+
+syncCellSize();
+
+addEventListener("resize", () => {
+    if (majorRz) syncCellSize();
+});
+
+const APP_STORE_URL = "https://apps.apple.com/app/id6795254414";
+
+const STORE_URL = APP_STORE_URL || "#";
+
+const I18N = {
+    ja: {
+        navFeatures: "機能",
+        navPreview: "プレビュー",
+        navPrivacy: "プライバシー",
+        navFaq: "FAQ",
+        navSoon: "近日公開",
+        tabHome: "ホーム",
+        tagline: '<span class="nw">Googleスプレッドシートを、</span><wbr><span class="u nw">ホーム画面に。</span>',
+        lede: "1日に何度も開いて確認しているそのシート、ホーム画面に置けば<b>見るだけ</b>で済みます。<br>罫線も色もそのまま、<b>自動で最新</b>。",
+        ctaMain: "公開通知を受け取る",
+        ctaSub: "App Store — Coming soon",
+        cap1: "スプレッドシートの",
+        cap2: "見たい範囲が",
+        cap3: "ウィジェットになる",
+        scrollHint: "スクロール",
+        priceH: "無料ではじめて、​必要ならPro",
+        priceLede: "基本機能はずっと無料。<br>Proは7日間無料で試せます。",
+        pr1: '<span class="brk"><span class="nw">スプレッドシートを</span><wbr><span class="nw">ウィジェット表示</span></span>',
+        pr2: '<span class="brk"><span class="nw">小・中・大・特大の</span><wbr><span class="nw">4サイズ</span></span>',
+        pr3: '<span class="brk"><span class="nw">罫線・背景色・書式の</span><wbr><span class="nw">再現</span></span>',
+        pr4: "自動更新",
+        pr13: "手動更新",
+        pr5: '<span class="brk"><span class="nw">テーマ色・表示の</span><wbr><span class="nw">細かなカスタマイズ</span></span>',
+        pr6: '<span class="brk"><span class="nw">透かし（Sheet Widget）の</span><wbr><span class="nw">非表示</span></span>',
+        pr7: "ウィジェットの数",
+        pr7f: "1個",
+        pr7p: "無制限",
+        pr9: '<span class="brk"><span class="nw">複数の</span><wbr><span class="nw">Googleアカウント</span></span>',
+        pr10: '<span class="brk"><span class="nw">データ変更を</span><wbr><span class="nw">通知</span></span>',
+        pr11: '<span class="brk"><span class="nw">タップしたセルの</span><wbr><span class="nw">値をコピー</span></span>',
+        pr12: '<span class="brk"><span class="nw">グラフの</span><wbr><span class="nw">ウィジェット表示</span></span>',
+        prFeatCol: "機能",
+        privH: "データは、​GoogleからiPhoneへ直接",
+        privLede: "Sheet Widgetはサーバーを持たないスタンドアロン設計です。<br>認証情報はiPhoneのKeychainにのみ保存され、シートの内容が運営や第三者に送られることはありません。<br>広告も表示せず、トラッキングも行いません。",
+        yourPhone: "あなたの iPhone",
+        zeroL: "経由するサーバーの数",
+        zeroS: "サーバーレス設計",
+        midSrv: "第三者のサーバー",
+        lockSheetName: "収支シート",
+        lockState: "非公開",
+        lockOk: "このままウィジェットに表示できます",
+        lockCap: "「ウェブに公開」も、公開リンクも不要。",
+        fact1: "Google OAuth 2.0 ログイン — パスワードを預かりません",
+        fact2: "Google 公式 Sheets API を利用",
+        fact3: "通信は Google との直接 HTTPS のみ",
+        faqH: "よくある質問",
+        q1: "共有設定やウェブ公開が必要ですか？",
+        a1: "不要です。<br>表示したい範囲を選ぶだけで、シートは非公開のまま使えます。<br>誰かに見えるようにする操作は一切発生しません。",
+        q2: "Googleアカウントを乗っ取られたりしませんか？",
+        a2: "Sheet Widgetが読み取れるのは、あなたが選んだシートだけです。<br>パスワードそのものを渡す仕組みではなく、Google公式のログイン（OAuth）経由でアクセス範囲を限定しています。",
+        q3: "無料版とProどっちを選べばいい？",
+        a3: "ホーム画面に1つだけ表を置きたいなら無料版で十分です。<br>複数のシートを並べたい、透かしを消したい、グラフを出したい、セルの値をコピーしたいならProがおすすめです。<br>7日間は無料で試せます。",
+        q4: "ウィジェットの数字はいつの時点のものですか？",
+        a4: "iOSの仕組み上、自動更新はおよそ15〜60分間隔です。<br>今すぐ反映したい時は、Proの即時更新ボタンでその場で最新化できます。",
+        q5: "数式やIMAGE関数を使ったセルも表示できますか？",
+        a5: "計算結果や画像はそのまま反映されます。<br>ウィジェット側で数式を書き直したり、スクリプトを用意したりする必要はありません。",
+        q6: "チェックボックスや特殊な書式も再現されますか？",
+        a6: "値・背景色・文字色・太字/斜体/下線/取り消し線・罫線・配置・セル結合・折り返しは再現します。<br>チェックボックスなど一部のオブジェクトは非対応です。",
+        q7: "セルをタップしてコピーすると、アプリが開くのはなぜですか？",
+        a7: "iOSの制限で、ウィジェットから直接クリップボードへ書き込むことができないためです。<br>アプリが一瞬前面に出てコピーを行います。<br>タップ動作で「スプレッドシート」を選んでおけば、コピーしたあとそのままシートへ移動します。",
+        q8: "コピーされるのは文字列だけですか？",
+        a8: "はい、セルに表示されている文字列だけをコピーします。<br>文字色や背景色、太字などの書式や、IMAGE関数で表示している画像はコピーされません。<br>空欄のセルをタップした場合もコピーされません。",
+        lgPrivacy: "プライバシーポリシー",
+        lgTerms: "利用規約",
+        metaDesc: "Googleスプレッドシートの見たい範囲を、iPhoneのホーム画面ウィジェットに。罫線も色もそのまま、自動で最新。グラフ表示にも対応。",
+        ogLocale: "ja_JP",
+        navSoonLive: "ダウンロード",
+        storeTop: "App Storeで",
+        storeMain: "ダウンロード",
+        endH: "さっそく、​ホーム画面に。",
+        endTrial: "基本機能は無料。<br>Proも7日間無料で試せます。",
+        docTitle: "スプレッドシートをiPhoneのウィジェットに｜Sheet Widget"
+    },
+    en: {
+        navFeatures: "Features",
+        navPreview: "Preview",
+        navPrivacy: "Privacy",
+        navFaq: "FAQ",
+        navSoon: "Coming soon",
+        tabHome: "Home",
+        tagline: '<span class="nw">Your Google Sheets,</span> <span class="u nw">on your Home Screen.</span>',
+        lede: "That spreadsheet you check ten times a day — put it on your Home Screen and <b>just glance</b>. Borders and colors intact, <b>always up to date</b>.",
+        ctaMain: "Get notified at launch",
+        ctaSub: "App Store — Coming soon",
+        cap1: "Take a spreadsheet",
+        cap2: "Select a range",
+        cap3: "It becomes a widget",
+        scrollHint: "scroll",
+        priceH: "Start free. Go Pro if you need it.",
+        priceLede: "Core features are free forever. Try Pro free for 7 days.",
+        pr1: "Spreadsheet as a widget",
+        pr2: "Four widget sizes",
+        pr3: "Borders, colors & formatting",
+        pr4: "Auto refresh",
+        pr13: "Manual refresh",
+        pr5: "Theme colors & display fine-tuning",
+        pr6: "Hide the Sheet Widget watermark",
+        pr7: "Number of widgets",
+        pr7f: "1",
+        pr7p: "Unlimited",
+        pr9: "Multiple Google accounts",
+        pr10: "Change notifications",
+        pr11: "Copy a tapped cell’s value",
+        pr12: "Charts as widgets",
+        prFeatCol: "Feature",
+        privH: "Straight from Google to your iPhone",
+        privLede: "Sheet Widget is a standalone app with no backend. Credentials live only in your iPhone’s Keychain, and your sheet data is never sent to us or anyone else. No ads, no tracking.",
+        yourPhone: "your iPhone",
+        zeroL: "servers in between",
+        zeroS: "serverless by design",
+        midSrv: "third-party server",
+        lockSheetName: "Budget sheet",
+        lockState: "Private",
+        lockOk: "Still renders as a widget",
+        lockCap: "No “publish to the web”, no public links.",
+        fact1: "Google OAuth 2.0 sign-in — we never see your password",
+        fact2: "Built on the official Google Sheets API",
+        fact3: "HTTPS directly to Google — nothing in between",
+        faqH: "Got questions?",
+        q1: "Do I need to share the sheet or publish it to the web?",
+        a1: "No. Just pick the range you want to show — the sheet stays private. Nothing is ever made visible to anyone else.",
+        q2: "Could someone take over my Google account through this?",
+        a2: "Sheet Widget can only read the sheet you explicitly selected. It never handles your password directly — access is scoped through Google’s own OAuth sign-in.",
+        q3: "Should I get Free or Pro?",
+        a3: "If you just want one table on your Home Screen, Free covers it. Want multiple sheets, no watermark, charts, or copying a cell’s value? Go Pro — it’s free to try for 7 days.",
+        q4: "How current is the number shown in the widget?",
+        a4: "On iOS, automatic refreshes happen roughly every 15–60 minutes. Need it now? Pro’s instant refresh button updates it right away.",
+        q5: "Does it work with formulas or the IMAGE() function?",
+        a5: "Yes — computed results and images show up as-is. You don’t need to rewrite formulas or set up any script for the widget.",
+        q6: "Are checkboxes and other special formatting reproduced?",
+        a6: "Values, background/text colors, bold/italic/underline/strikethrough, borders, alignment, merged cells, and text wrapping are all reproduced. Some objects, like checkboxes, aren’t supported yet.",
+        q7: "Why does the app open when I tap a cell to copy it?",
+        a7: "iOS does not allow a widget to write to the clipboard directly.<br>The app comes to the front for a moment to do the copy.<br>If you set the tap destination to “Spreadsheet”, you land on the sheet right after the copy.",
+        q8: "Does copying include formatting?",
+        a8: "No, only the cell’s text value is copied.<br>Text color, background color, bold, and other formatting aren’t copied, and neither are images shown via the IMAGE function.<br>Tapping an empty cell copies nothing.",
+        lgPrivacy: "Privacy Policy",
+        lgTerms: "Terms of Service",
+        metaDesc: "Put any range of your Google Sheets on your iPhone home screen as a widget. Formatting intact, always up to date. Charts supported.",
+        ogLocale: "en_US",
+        navSoonLive: "Download",
+        storeTop: "Download on the",
+        storeMain: "App Store",
+        endH: "Put it on your Home Screen.",
+        endTrial: "Free to use — and Pro comes with a 7-day free trial.",
+        docTitle: "Google Sheets as an iPhone Home Screen Widget｜Sheet Widget"
+    },
+    ko: {
+        navFeatures: "기능",
+        navPreview: "미리보기",
+        navPrivacy: "프라이버시",
+        navFaq: "Q&A",
+        navSoon: "곧 출시",
+        tabHome: "홈",
+        tagline: '<span class="nw">Google 스프레드시트를</span><wbr> <span class="u nw">홈 화면에.</span>',
+        lede: "하루에도 몇 번씩 열어 확인하는 그 시트, 홈 화면에 두면 <b>보기만 하면</b> 됩니다. 테두리도 색상도 그대로, <b>자동으로 최신</b>.",
+        ctaMain: "출시 알림 받기",
+        ctaSub: "App Store — Coming soon",
+        cap1: "스프레드시트에서",
+        cap2: "보고 싶은 범위가",
+        cap3: "위젯이 됩니다",
+        scrollHint: "스크롤",
+        priceH: "무료로 시작, 필요하면 Pro",
+        priceLede: "기본 기능은 계속 무료. Pro는 7일 무료 체험.",
+        pr1: "스프레드시트를 위젯으로 표시",
+        pr2: "소·중·대·특대 4가지 크기",
+        pr3: "테두리·배경색·서식 재현",
+        pr4: "자동 업데이트",
+        pr13: "수동 새로고침",
+        pr5: "테마 색상·세부 표시 커스터마이즈",
+        pr6: "워터마크(Sheet Widget) 숨기기",
+        pr7: "위젯 개수",
+        pr7f: "1개",
+        pr7p: "무제한",
+        pr9: "여러 Google 계정",
+        pr10: "데이터 변경 알림",
+        pr11: '<span class="brk"><span class="nw">탭한 셀의</span> <wbr><span class="nw">값을 복사</span></span>',
+        pr12: "차트 위젯 표시",
+        prFeatCol: "기능",
+        privH: "데이터는 Google에서 iPhone으로 직접",
+        privLede: "Sheet Widget은 서버가 없는 스탠드얼론 설계입니다. 인증 정보는 iPhone의 Keychain에만 저장되며, 시트 내용이 운영자나 제3자에게 전송되지 않습니다. 광고도 없고 트래킹도 하지 않습니다.",
+        yourPhone: "당신의 iPhone",
+        zeroL: "경유하는 서버 수",
+        zeroS: "서버리스 설계",
+        midSrv: "제3자 서버",
+        lockSheetName: "수지 시트",
+        lockState: "비공개",
+        lockOk: "이대로 위젯에 표시할 수 있어요",
+        lockCap: "“웹에 게시”도 공개 링크도 불필요.",
+        fact1: "Google OAuth 2.0 로그인 — 비밀번호를 보관하지 않습니다",
+        fact2: "Google 공식 Sheets API 사용",
+        fact3: "통신은 Google과의 직접 HTTPS뿐",
+        faqH: "궁금한 점",
+        q1: "시트를 공유하거나 웹에 게시해야 하나요?",
+        a1: "아니요. 보여주고 싶은 범위만 선택하면 되고, 시트는 비공개 상태 그대로 사용됩니다. 누군가에게 보이도록 하는 작업은 전혀 필요하지 않습니다.",
+        q2: "Google 계정을 탈취당할 위험은 없나요?",
+        a2: "Sheet Widget이 읽을 수 있는 것은 당신이 선택한 시트뿐입니다. 비밀번호를 직접 전달하는 방식이 아니라, Google 공식 로그인(OAuth)을 통해 접근 범위를 제한합니다.",
+        q3: "무료판과 Pro, 뭘 선택해야 하나요?",
+        a3: "홈 화면에 표 하나만 두고 싶다면 무료판으로 충분합니다. 여러 시트를 나열하거나, 워터마크를 지우거나, 차트를 보여주거나, 셀의 값을 복사하고 싶다면 Pro를 선택하세요. 7일간 무료로 체험할 수 있습니다.",
+        q4: "위젯의 숫자는 언제 시점의 데이터인가요?",
+        a4: "iOS 특성상 자동 업데이트는 대략 15~60분 간격입니다. 지금 바로 반영하고 싶다면 Pro의 즉시 새로고침 버튼으로 그 자리에서 최신화할 수 있습니다.",
+        q5: "수식이나 IMAGE 함수를 쓴 셀도 표시되나요?",
+        a5: "계산 결과와 이미지는 그대로 반영됩니다. 위젯을 위해 수식을 다시 작성하거나 스크립트를 준비할 필요는 없습니다.",
+        q6: "체크박스나 특수한 서식도 재현되나요?",
+        a6: "값·배경색·글자색·굵게/기울임/밑줄/취소선·테두리·정렬·셀 병합·줄바꿈은 재현됩니다. 체크박스 등 일부 오브젝트는 아직 지원하지 않습니다.",
+        q7: "셀을 탭해 복사하면 왜 앱이 열리나요?",
+        a7: "iOS 제한으로 위젯에서 클립보드에 직접 쓸 수 없기 때문입니다.<br>앱이 잠깐 앞으로 나와 복사를 수행합니다.<br>탭 동작을 ‘스프레드시트’로 설정해 두면 복사 후 바로 시트로 이동합니다.",
+        q8: "복사되는 건 문자열뿐인가요?",
+        a8: "네, 셀에 표시된 문자열만 복사됩니다.<br>글자색이나 배경색, 굵게 등의 서식과 IMAGE 함수로 표시한 이미지는 복사되지 않습니다.<br>빈 셀을 탭해도 복사되지 않습니다.",
+        lgPrivacy: "개인정보 처리방침",
+        lgTerms: "이용약관",
+        metaDesc: "Google 스프레드시트의 원하는 범위를 iPhone 홈 화면 위젯으로. 서식 그대로, 자동으로 최신. 차트 표시도 지원.",
+        ogLocale: "ko_KR",
+        navSoonLive: "다운로드",
+        storeTop: "App Store에서",
+        storeMain: "다운로드",
+        endH: "지금 바로, 홈 화면에.",
+        endTrial: "기본 기능 무료 · Pro 7일 무료 체험.",
+        docTitle: "구글 스프레드시트를 아이폰 홈 화면 위젯으로｜Sheet Widget"
+    },
+    zht: {
+        navFeatures: "功能",
+        navPreview: "預覽",
+        navPrivacy: "隱私",
+        navFaq: "Q&A",
+        navSoon: "即將推出",
+        tabHome: "首頁",
+        tagline: '<span class="nw">把 Google 試算表</span><wbr><span class="u nw">放上主畫面。</span>',
+        lede: "那份一天要打開好幾次的試算表，放上主畫面之後<b>看一眼</b>就好。框線與顏色原樣呈現，<b>自動保持最新</b>。",
+        ctaMain: "接收上架通知",
+        ctaSub: "App Store — Coming soon",
+        cap1: "從試算表中",
+        cap2: "選出想看的範圍",
+        cap3: "就變成小工具",
+        scrollHint: "捲動",
+        priceH: "免費開始，需要再升級 Pro",
+        priceLede: "基本功能永久免費。Pro 可免費試用 7 天。",
+        pr1: "試算表顯示為小工具",
+        pr2: "小・中・大・特大四種尺寸",
+        pr3: "框線・背景色・格式重現",
+        pr4: "自動更新",
+        pr13: "手動更新",
+        pr5: "主題色・顯示細節自訂",
+        pr6: "隱藏浮水印（Sheet Widget）",
+        pr7: "小工具數量",
+        pr7f: "1 個",
+        pr7p: "無限制",
+        pr9: "多個 Google 帳戶",
+        pr10: "資料變更通知",
+        pr11: '<span class="brk"><span class="nw">複製點選</span><wbr><span class="nw">儲存格的值</span></span>',
+        pr12: "圖表小工具顯示",
+        prFeatCol: "功能",
+        privH: "資料從 Google 直達 iPhone",
+        privLede: "Sheet Widget 是不設伺服器的獨立設計。憑證僅儲存在 iPhone 的 Keychain，試算表內容不會傳給營運方或任何第三方。不顯示廣告，也不做追蹤。",
+        yourPhone: "你的 iPhone",
+        zeroL: "經過的伺服器數",
+        zeroS: "無伺服器設計",
+        midSrv: "第三方伺服器",
+        lockSheetName: "收支表",
+        lockState: "私密",
+        lockOk: "保持這樣即可顯示為小工具",
+        lockCap: "不需「發布到網路」，也不需公開連結。",
+        fact1: "Google OAuth 2.0 登入 — 我們不會保管你的密碼",
+        fact2: "採用 Google 官方 Sheets API",
+        fact3: "通訊僅為與 Google 的直接 HTTPS",
+        faqH: "還有疑問？",
+        q1: "需要共用試算表或發布到網路嗎？",
+        a1: "不需要。只要選擇想顯示的範圍即可，試算表仍保持非公開狀態。不會有任何讓他人可見的操作發生。",
+        q2: "Google 帳戶會不會被盜用？",
+        a2: "Sheet Widget 只能讀取你選擇的試算表。它不會直接經手你的密碼，存取範圍是透過 Google 官方登入（OAuth）限定的。",
+        q3: "免費版和 Pro 該選哪個？",
+        a3: "只想在主畫面放一張表的話，免費版就夠用。想並排多張試算表、隱藏浮水印、顯示圖表，或複製儲存格的值，就選 Pro，可免費試用 7 天。",
+        q4: "小工具上的數字是什麼時候的資料？",
+        a4: "依 iOS 機制，自動更新大約每 15～60 分鐘一次。想立即更新的話，可以使用 Pro 的即時更新按鈕立刻取得最新資料。",
+        q5: "有用公式或 IMAGE 函數的儲存格也能顯示嗎？",
+        a5: "計算結果與圖片都會如實反映。不需要為小工具重寫公式或準備指令碼。",
+        q6: "核取方塊或特殊格式也能重現嗎？",
+        a6: "值、背景色、文字色、粗體/斜體/底線/刪除線、框線、對齊、儲存格合併、自動換行都能重現。核取方塊等部分物件目前尚不支援。",
+        q7: "點選儲存格複製時，為什麼會開啟 App？",
+        a7: "這是 iOS 的限制，小工具無法直接寫入剪貼簿。<br>App 會暫時來到前景完成複製。<br>若把點按動作設為「試算表」，複製後就會直接前往試算表。",
+        q8: "複製的只有文字內容嗎？",
+        a8: "是的，只會複製儲存格顯示的文字內容。<br>文字顏色、背景色、粗體等格式，以及用 IMAGE 函數顯示的圖片都不會被複製。<br>點選空白儲存格也不會複製任何內容。",
+        lgPrivacy: "隱私權政策",
+        lgTerms: "服務條款",
+        metaDesc: "把 Google 試算表想看的範圍放上 iPhone 主畫面小工具。格式原樣、自動保持最新，並支援圖表顯示。",
+        ogLocale: "zh_TW",
+        navSoonLive: "下載",
+        storeTop: "在 App Store",
+        storeMain: "下載",
+        endH: "現在就放上主畫面。",
+        endTrial: "基本功能免費，Pro 亦可免費試用 7 天。",
+        docTitle: "把 Google 試算表變成 iPhone 主畫面小工具｜Sheet Widget"
+    },
+    es: {
+        navFeatures: "Funciones",
+        navPreview: "Vista previa",
+        navPrivacy: "Privacidad",
+        navFaq: "Q&A",
+        navSoon: "Próximamente",
+        tabHome: "Inicio",
+        tagline: '<span class="nw">Tus hojas de Google,</span> <span class="u nw">en tu pantalla de inicio.</span>',
+        lede: "Esa hoja de cálculo que consultas diez veces al día: ponla en tu pantalla de inicio y <b>échale un vistazo</b>. Bordes y colores intactos, <b>siempre al día</b>.",
+        ctaMain: "Avísame en el lanzamiento",
+        ctaSub: "App Store — Próximamente",
+        cap1: "Toma una hoja de cálculo",
+        cap2: "Selecciona un rango",
+        cap3: "Se convierte en widget",
+        scrollHint: "desplázate",
+        priceH: "Empieza gratis. Pasa a Pro si lo necesitas.",
+        priceLede: "Lo básico es gratis para siempre. Prueba Pro gratis 7 días.",
+        pr1: "Hoja de cálculo como widget",
+        pr2: "Cuatro tamaños de widget",
+        pr3: "Bordes, colores y formato",
+        pr4: "Actualización automática",
+        pr13: "Actualización manual",
+        pr5: "Colores de tema y ajustes finos",
+        pr6: "Ocultar la marca de agua",
+        pr7: "Número de widgets",
+        pr7f: "1",
+        pr7p: "Ilimitados",
+        pr9: "Varias cuentas de Google",
+        pr10: "Avisos de cambios",
+        pr11: "Copiar el valor de la celda tocada",
+        pr12: "Gráficos como widgets",
+        prFeatCol: "Función",
+        privH: "Directo de Google a tu iPhone",
+        privLede: "Sheet Widget es una app independiente sin backend. Las credenciales viven solo en el Keychain de tu iPhone y tus datos nunca se envían a nosotros ni a nadie. Sin anuncios, sin rastreo.",
+        yourPhone: "tu iPhone",
+        zeroL: "servidores de por medio",
+        zeroS: "sin servidores por diseño",
+        midSrv: "servidor de terceros",
+        lockSheetName: "Hoja de balance",
+        lockState: "Privada",
+        lockOk: "Aun así se muestra como widget",
+        lockCap: "Sin «publicar en la web», sin enlaces públicos.",
+        fact1: "Inicio de sesión con Google OAuth 2.0 — nunca vemos tu contraseña",
+        fact2: "Basado en la API oficial de Google Sheets",
+        fact3: "HTTPS directo con Google — nada en medio",
+        faqH: "¿Tienes dudas?",
+        q1: "¿Tengo que compartir la hoja o publicarla en la web?",
+        a1: "No. Solo eliges el rango que quieres mostrar y la hoja sigue siendo privada. Nunca se hace nada visible para otras personas.",
+        q2: "¿Pueden robarme la cuenta de Google por esto?",
+        a2: "Sheet Widget solo puede leer la hoja que tú elegiste. Nunca maneja tu contraseña directamente: el acceso se limita a través del inicio de sesión oficial de Google (OAuth).",
+        q3: "¿Elijo Free o Pro?",
+        a3: "Si solo quieres una tabla en tu pantalla de inicio, con Free te alcanza. Si quieres varias hojas, ocultar la marca de agua, mostrar gráficos o copiar el valor de una celda, pásate a Pro — puedes probarlo gratis 7 días.",
+        q4: "¿De qué momento son los datos que muestra el widget?",
+        a4: "Por cómo funciona iOS, la actualización automática ocurre cada 15–60 minutos aproximadamente. ¿Lo quieres al instante? El botón de actualización instantánea de Pro lo actualiza al momento.",
+        q5: "¿Funciona con fórmulas o la función IMAGE()?",
+        a5: "Sí, los resultados calculados y las imágenes se muestran tal cual. No necesitas reescribir fórmulas ni preparar ningún script para el widget.",
+        q6: "¿Se reproducen las casillas de verificación u otros formatos especiales?",
+        a6: "Se reproducen valores, colores de fondo y texto, negrita/cursiva/subrayado/tachado, bordes, alineación, celdas combinadas y ajuste de texto. Algunos objetos, como las casillas de verificación, todavía no son compatibles.",
+        q7: "¿Por qué se abre la app al tocar una celda para copiarla?",
+        a7: "iOS no permite que un widget escriba directamente en el portapapeles.<br>La app pasa a primer plano un instante para hacer la copia.<br>Si eliges «Hoja de cálculo» como destino, llegarás a la hoja justo después de copiar.",
+        q8: "¿Se copia también el formato?",
+        a8: "No, solo se copia el valor de texto de la celda.<br>El color de texto, el color de fondo, la negrita y otros formatos no se copian, y tampoco las imágenes mostradas con la función IMAGE.<br>Tocar una celda vacía no copia nada.",
+        lgPrivacy: "Política de privacidad",
+        lgTerms: "Términos de servicio",
+        metaDesc: "Pon cualquier rango de tus hojas de Google en la pantalla de inicio de tu iPhone. Formato intacto, siempre al día. Con gráficos.",
+        ogLocale: "es_ES",
+        navSoonLive: "Descargar",
+        storeTop: "Descárgala en el",
+        storeMain: "App Store",
+        endH: "Ponla en tu pantalla de inicio.",
+        endTrial: "Gratis, y Pro con 7 días de prueba.",
+        docTitle: "Google Sheets como widget en la pantalla del iPhone｜Sheet Widget"
+    },
+    de: {
+        navFeatures: "Funktionen",
+        navPreview: "Vorschau",
+        navPrivacy: "Datenschutz",
+        navFaq: "FAQ",
+        navSoon: "Bald verfügbar",
+        tabHome: "Start",
+        tagline: '<span class="nw">Deine Google-Tabellen,</span> <span class="u nw">auf dem Home-Bildschirm.</span>',
+        lede: "Die Tabelle, die du zehnmal am Tag öffnest — leg sie auf den Home-Bildschirm und <b>wirf nur einen Blick</b>. Rahmen und Farben bleiben erhalten, <b>immer aktuell</b>.",
+        ctaMain: "Zum Launch benachrichtigen",
+        ctaSub: "App Store — Bald verfügbar",
+        cap1: "Nimm eine Tabelle",
+        cap2: "Wähle einen Bereich",
+        cap3: "Er wird zum Widget",
+        scrollHint: "scrollen",
+        priceH: "Gratis starten. Pro, wenn du es brauchst.",
+        priceLede: "Die Kernfunktionen sind für immer gratis. Teste Pro 7 Tage kostenlos.",
+        pr1: "Tabelle als Widget",
+        pr2: "Vier Widget-Größen",
+        pr3: "Rahmen, Farben & Formatierung",
+        pr4: "Automatische Aktualisierung",
+        pr13: "Manuelle Aktualisierung",
+        pr5: "Themenfarben & Feineinstellungen",
+        pr6: "Wasserzeichen ausblenden",
+        pr7: "Anzahl Widgets",
+        pr7f: "1",
+        pr7p: "Unbegrenzt",
+        pr9: "Mehrere Google-Konten",
+        pr10: "Änderungsbenachrichtigungen",
+        pr11: "Wert der getippten Zelle kopieren",
+        pr12: "Diagramme als Widgets",
+        prFeatCol: "Funktion",
+        privH: "Direkt von Google auf dein iPhone",
+        privLede: "Sheet Widget ist eine eigenständige App ohne Backend. Zugangsdaten liegen nur im Keychain deines iPhones, und deine Tabellendaten gehen nie an uns oder Dritte. Keine Werbung, kein Tracking.",
+        yourPhone: "dein iPhone",
+        zeroL: "Server dazwischen",
+        zeroS: "serverlos by design",
+        midSrv: "Drittanbieter-Server",
+        lockSheetName: "Bilanz-Tabelle",
+        lockState: "Privat",
+        lockOk: "Wird trotzdem als Widget angezeigt",
+        lockCap: 'Kein „Im Web veröffentlichen", keine öffentlichen Links.',
+        fact1: "Google-OAuth-2.0-Anmeldung — wir sehen dein Passwort nie",
+        fact2: "Basiert auf der offiziellen Google Sheets API",
+        fact3: "HTTPS direkt zu Google — nichts dazwischen",
+        faqH: "Noch Fragen?",
+        q1: "Muss ich die Tabelle freigeben oder im Web veröffentlichen?",
+        a1: "Nein. Du wählst nur den gewünschten Bereich aus, die Tabelle bleibt privat. Es wird nichts für andere sichtbar gemacht.",
+        q2: "Kann mein Google-Konto dadurch übernommen werden?",
+        a2: "Sheet Widget kann nur die von dir ausgewählte Tabelle lesen. Dein Passwort wird nie direkt gehandhabt — der Zugriff ist über Googles offizielle Anmeldung (OAuth) begrenzt.",
+        q3: "Free oder Pro — was passt zu mir?",
+        a3: "Willst du nur eine Tabelle auf dem Home-Bildschirm, reicht Free. Für mehrere Tabellen nebeneinander, ohne Wasserzeichen, mit Diagrammen oder zum Kopieren von Zellwerten: Pro — 7 Tage kostenlos testbar.",
+        q4: "Wie aktuell sind die Zahlen im Widget?",
+        a4: "Durch iOS aktualisiert sich das Widget automatisch etwa alle 15–60 Minuten. Sofort nötig? Der Sofort-Aktualisieren-Button von Pro aktualisiert direkt.",
+        q5: "Funktioniert es mit Formeln oder der Funktion IMAGE()?",
+        a5: "Ja — berechnete Ergebnisse und Bilder werden unverändert übernommen. Du musst für das Widget keine Formeln umschreiben oder Skripte einrichten.",
+        q6: "Werden Kontrollkästchen oder besondere Formatierungen übernommen?",
+        a6: "Werte, Hintergrund-/Textfarben, Fett/Kursiv/Unterstrichen/Durchgestrichen, Rahmen, Ausrichtung, verbundene Zellen und Zeilenumbruch werden übernommen. Einige Objekte wie Kontrollkästchen werden noch nicht unterstützt.",
+        q7: "Warum öffnet sich die App, wenn ich eine Zelle zum Kopieren antippe?",
+        a7: "iOS erlaubt es einem Widget nicht, direkt in die Zwischenablage zu schreiben.<br>Die App kommt kurz in den Vordergrund, um zu kopieren.<br>Wenn du als Ziel „Tabelle“ wählst, landest du direkt nach dem Kopieren in der Tabelle.",
+        q8: "Wird auch die Formatierung kopiert?",
+        a8: "Nein, es wird nur der Textwert der Zelle kopiert.<br>Textfarbe, Hintergrundfarbe, Fettdruck und andere Formatierungen werden nicht kopiert, ebenso wenig Bilder, die über die Funktion IMAGE angezeigt werden.<br>Das Antippen einer leeren Zelle kopiert nichts.",
+        lgPrivacy: "Datenschutzrichtlinie",
+        lgTerms: "Nutzungsbedingungen",
+        metaDesc: "Bring jeden Bereich deiner Google-Tabellen als Widget auf den iPhone-Home-Bildschirm. Formatierung erhalten, immer aktuell. Mit Diagrammen.",
+        ogLocale: "de_DE",
+        navSoonLive: "Laden",
+        storeTop: "Laden im",
+        storeMain: "App Store",
+        endH: "Ab auf den Home-Bildschirm.",
+        endTrial: "Gratis nutzbar — Pro mit 7 Tagen Testphase.",
+        docTitle: "Google Sheets als Widget auf dem iPhone-Home｜Sheet Widget"
+    },
+    fr: {
+        navFeatures: "Fonctionnalités",
+        navPreview: "Aperçu",
+        navPrivacy: "Confidentialité",
+        navFaq: "FAQ",
+        navSoon: "Bientôt disponible",
+        tabHome: "Accueil",
+        tagline: '<span class="nw">Vos feuilles Google,</span> <span class="u nw">sur votre écran d’accueil.</span>',
+        lede: "Cette feuille que vous ouvrez dix fois par jour — posez-la sur votre écran d’accueil et <b>un coup d’œil suffit</b>. Bordures et couleurs intactes, <b>toujours à jour</b>.",
+        ctaMain: "Être prévenu du lancement",
+        ctaSub: "App Store — bientôt disponible",
+        cap1: "Prenez une feuille",
+        cap2: "Choisissez une plage",
+        cap3: "Elle devient un widget",
+        scrollHint: "défiler",
+        priceH: "Commencez gratuitement. Passez à Pro si besoin.",
+        priceLede: "Les fonctions essentielles restent gratuites.<br>Pro est offert pendant 7 jours.",
+        pr1: "Feuille de calcul en widget",
+        pr2: "Quatre tailles de widget",
+        pr3: "Bordures, couleurs et mise en forme",
+        pr4: "Actualisation auto",
+        pr13: "Actualisation manuelle",
+        pr5: "Couleurs du thème et réglages d’affichage",
+        pr6: "Masquer le filigrane (Sheet Widget)",
+        pr7: "Nombre de widgets",
+        pr7f: "1",
+        pr7p: "Illimité",
+        pr9: "Plusieurs comptes Google",
+        pr10: "Notifications de changement",
+        pr11: "Copier la valeur de la cellule touchée",
+        pr12: "Graphiques en widgets",
+        prFeatCol: "Fonctionnalité",
+        privH: "De Google à votre iPhone, directement",
+        privLede: "Sheet Widget est une app autonome, sans serveur.<br>Vos identifiants restent dans le trousseau de votre iPhone, et le contenu de vos feuilles ne nous est jamais transmis, ni à personne d’autre.<br>Aucune publicité, aucun pistage.",
+        yourPhone: "votre iPhone",
+        zeroL: "serveurs intermédiaires",
+        zeroS: "sans serveur, par conception",
+        midSrv: "serveur tiers",
+        lockSheetName: "Budget",
+        lockState: "Privée",
+        lockOk: "S’affiche quand même en widget",
+        lockCap: "Ni « publication sur le web », ni lien public.",
+        fact1: "Connexion Google OAuth 2.0 — nous ne voyons jamais votre mot de passe",
+        fact2: "Basé sur l’API officielle Google Sheets",
+        fact3: "HTTPS directement vers Google — rien entre les deux",
+        faqH: "Des questions ?",
+        q1: "Dois-je partager la feuille ou la publier sur le web ?",
+        a1: "Non.<br>Choisissez simplement la plage à afficher — la feuille reste privée.<br>Rien n’est jamais rendu visible à qui que ce soit.",
+        q2: "Mon compte Google risque-t-il d’être compromis ?",
+        a2: "Sheet Widget ne peut lire que la feuille que vous avez explicitement sélectionnée.<br>Votre mot de passe n’est jamais manipulé directement : l’accès est limité via la connexion officielle Google (OAuth).",
+        q3: "Gratuit ou Pro ?",
+        a3: "Pour un seul tableau sur l’écran d’accueil, la version gratuite suffit.<br>Plusieurs feuilles, pas de filigrane, des graphiques ou la copie de la valeur d’une cellule ? Passez à Pro.<br>L’essai est gratuit pendant 7 jours.",
+        q4: "Les chiffres du widget datent de quand ?",
+        a4: "Sur iOS, l’actualisation automatique a lieu environ toutes les 15 à 60 minutes.<br>Besoin de la valeur tout de suite ? Le bouton d’actualisation instantanée de Pro permet de mettre à jour immédiatement.",
+        q5: "Les formules et la fonction IMAGE() fonctionnent-elles ?",
+        a5: "Les résultats calculés et les images s’affichent tels quels.<br>Aucune formule à réécrire, aucun script à mettre en place.",
+        q6: "Les cases à cocher et les mises en forme particulières sont-elles reproduites ?",
+        a6: "Les valeurs, les couleurs de fond et de texte, gras/italique/souligné/barré, les bordures, l’alignement, les cellules fusionnées et le retour à la ligne sont reproduits.<br>Certains objets, comme les cases à cocher, ne sont pas encore pris en charge.",
+        q7: "Pourquoi l’app s’ouvre-t-elle quand je touche une cellule pour la copier ?",
+        a7: "iOS n’autorise pas un widget à écrire directement dans le presse-papiers.<br>L’app passe brièvement au premier plan pour effectuer la copie.<br>Si vous choisissez « Feuille » comme destination, vous arrivez sur la feuille juste après la copie.",
+        q8: "La mise en forme est-elle copiée aussi ?",
+        a8: "Non, seule la valeur texte de la cellule est copiée.<br>La couleur du texte, la couleur de fond, le gras et les autres mises en forme ne sont pas copiés, pas plus que les images affichées via la fonction IMAGE.<br>Toucher une cellule vide ne copie rien.",
+        lgPrivacy: "Politique de confidentialité",
+        lgTerms: "Conditions d’utilisation",
+        metaDesc: "Affichez n’importe quelle plage de vos feuilles Google en widget sur l’écran d’accueil de votre iPhone. Mise en forme intacte, toujours à jour. Graphiques pris en charge.",
+        ogLocale: "fr_FR",
+        navSoonLive: "Télécharger",
+        storeTop: "Télécharger dans",
+        storeMain: "l’App Store",
+        endH: "Sur votre écran d’accueil.",
+        endTrial: "Gratuit à l’usage.<br>Et Pro est offert pendant 7 jours.",
+        docTitle: "Google Sheets en widget sur l’écran d’accueil iPhone｜Sheet Widget"
+    }
+};
+
+let LANG = function() {
+    const ok = [ "ja", "en", "ko", "zht", "es", "de", "fr" ];
+    if (ok.includes(window.__SW_LANG)) return window.__SW_LANG;
+    return "en";
+}();
+
+function splitChars(el) {
+    const text = el.textContent;
+    el.textContent = "";
+    const unitRe = /[A-Za-z0-9'’.,%$€£¥+&-]+|\s+|[^\sA-Za-z0-9][、。，．・！？」』）｝!?:：]*/g;
+    const segments = text.split("​");
+    let i = 0;
+    segments.forEach((seg, si) => {
+        const multi = segments.length > 1;
+        const target = multi ? document.createElement("span") : el;
+        if (multi) target.style.whiteSpace = "nowrap";
+        const units = seg.match(unitRe) || [ seg ];
+        units.forEach(u => {
+            if (/^\s+$/.test(u)) {
+                target.appendChild(document.createTextNode(" "));
+                return;
+            }
+            const w = document.createElement("span");
+            w.className = "chw";
+            [ ...u ].forEach(c => {
+                const s = document.createElement("span");
+                s.className = "ch";
+                s.style.animationDelay = .05 + i * .028 + "s";
+                s.style.setProperty("--d", .05 + i * .028 + "s");
+                s.textContent = c;
+                w.appendChild(s);
+                i++;
+            });
+            target.appendChild(w);
+        });
+        if (multi) {
+            el.appendChild(target);
+            if (si < segments.length - 1) el.appendChild(document.createElement("wbr"));
+        }
+    });
+}
+
+function applyLang(lang) {
+    LANG = lang;
+    const d = I18N[lang];
+    document.documentElement.lang = lang === "zht" ? "zh-Hant" : lang;
+    document.title = d.docTitle;
+    const setMeta = (sel, val) => {
+        const el = document.querySelector(sel);
+        if (el) el.setAttribute("content", val);
+    };
+    setMeta('meta[name="description"]', d.metaDesc);
+    setMeta('meta[property="og:title"]', d.docTitle);
+    setMeta('meta[property="og:description"]', d.metaDesc);
+    setMeta('meta[name="twitter:title"]', d.docTitle);
+    setMeta('meta[name="twitter:description"]', d.metaDesc);
+    setMeta('meta[property="og:locale"]', d.ogLocale);
+    document.querySelectorAll("[data-i]").forEach(el => {
+        const v = d[el.dataset.i];
+        if (v !== undefined) el.innerHTML = v;
+    });
+    if (STORE_URL) {
+        const liveMap = {
+            navSoon: "navSoonLive"
+        };
+        Object.entries(liveMap).forEach(([k, lk]) => {
+            const v = d[lk];
+            if (v === undefined) return;
+            document.querySelectorAll('[data-i="' + k + '"]').forEach(el => {
+                el.innerHTML = v.replace("{url}", STORE_URL);
+            });
+        });
+        document.querySelectorAll("[data-store-cta]").forEach(a => {
+            a.href = STORE_URL;
+            if (APP_STORE_URL) {
+                a.target = "_blank";
+                a.rel = "noopener";
+            }
+        });
+        document.querySelectorAll("a.btn[data-store-cta]").forEach(hero => {
+            hero.classList.remove("btn-primary");
+            hero.classList.add("btn-store");
+            hero.innerHTML = '<svg viewBox="0 0 384 512" fill="#fff" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.7-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>' + '<span class="bs"><em>' + d.storeTop + "</em><b>" + d.storeMain + "</b></span>";
+        });
+    }
+    document.querySelectorAll("[data-legal]").forEach(a => {
+        const base = a.dataset.legal;
+        a.href = lang === "en" ? "/" + base + "/" : "/" + lang + "/" + base + "/";
+    });
+    const sel = document.getElementById("langSel");
+    if (sel) sel.value = lang;
+    document.querySelectorAll("h2.split").forEach(h => {
+        if (h.classList.contains("played")) {
+            splitChars(h);
+        }
+    });
+    requestAnimationFrame(forceRelayout);
+    requestAnimationFrame(equalizeFacts);
+}
+
+function equalizeFacts() {
+    const facts = document.querySelectorAll(".fact");
+    if (!facts.length) return;
+    facts.forEach(f => {
+        f.style.width = "";
+        f.style.minHeight = "";
+    });
+    let maxW = 0, maxH = 0;
+    facts.forEach(f => {
+        const r = f.getBoundingClientRect();
+        maxW = Math.max(maxW, r.width);
+        maxH = Math.max(maxH, r.height);
+    });
+    facts.forEach(f => {
+        f.style.width = Math.ceil(maxW) + "px";
+        f.style.minHeight = Math.ceil(maxH) + "px";
+    });
+}
+
+addEventListener("resize", () => {
+    if (majorRz) requestAnimationFrame(equalizeFacts);
+});
+
+document.getElementById("langSel").addEventListener("change", e => {
+    try {
+        sessionStorage.setItem("sw_pick", "1");
+    } catch (_) {}
+    const path = {
+        en: "/",
+        ja: "/ja/",
+        ko: "/ko/",
+        zht: "/zht/",
+        es: "/es/",
+        de: "/de/",
+        fr: "/fr/"
+    }[e.target.value];
+    if (path) location.href = path + location.hash;
+});
+
+function syncFeeGrid() {
+    const grid = document.getElementById("feeGrid");
+    if (!grid) return;
+    const cs = getComputedStyle(document.documentElement);
+    const CW = parseFloat(cs.getPropertyValue("--cell-w")) || 72;
+    const CH = parseFloat(cs.getPropertyValue("--cell-h")) || 30;
+    const viewCols = Math.round((innerWidth - 22) / CW);
+    const totalCols = Math.max(6, Math.min(viewCols, 10));
+    const labelCols = totalCols - 2;
+    const c0 = Math.max(0, Math.round((viewCols - totalCols) / 2));
+    grid.style.marginTop = "56px";
+    let left = 0, top = 0, el = grid;
+    while (el) {
+        left += el.offsetLeft;
+        top += el.offsetTop;
+        el = el.offsetParent;
+    }
+    const padT = ((CH - (top - 80) % CH) % CH + CH) % CH;
+    grid.style.marginTop = 56 + padT + "px";
+    const baseX = 22 + c0 * CW - left;
+    const colX = [ baseX, baseX + labelCols * CW, baseX + (labelCols + 1) * CW ];
+    const colW = [ labelCols * CW, CW, CW ];
+    const items = Array.from(grid.children);
+    let y = 0;
+    for (let r = 0; r < Math.ceil(items.length / 3); r++) {
+        const cells = items.slice(r * 3, r * 3 + 3);
+        cells.forEach((c, i) => {
+            c.style.left = colX[i] + "px";
+            c.style.width = colW[i] + 1 + "px";
+            c.style.height = "auto";
+        });
+        const natural = Math.max(...cells.map(c => c.scrollHeight));
+        const h = Math.max(1, Math.ceil((natural + 2) / CH)) * CH;
+        cells.forEach(c => {
+            c.style.top = y + "px";
+            c.style.height = h + 1 + "px";
+        });
+        y += h;
+    }
+    grid.style.height = y + 1 + "px";
+}
+
+addEventListener("resize", () => {
+    if (majorRz) requestAnimationFrame(syncFeeGrid);
+});
+
+requestAnimationFrame(forceRelayout);
+
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => {
+    forceRelayout();
+    equalizeFacts();
+});
+
+applyLang(LANG);
+
+splitChars(document.getElementById("brandTitle"));
+
+(function() {
+    const colHeads = document.getElementById("colHeads");
+    const rowHeads = document.getElementById("rowHeads");
+    if (!colHeads || !rowHeads) return;
+    colHeads.innerHTML = '<div class="colScale" id="colScale"></div>';
+    rowHeads.innerHTML = '<div class="rowScale" id="rowScale"></div>';
+    const colScale = document.getElementById("colScale");
+    const rowScale = document.getElementById("rowScale");
+    const MINZ = .45;
+    function dims() {
+        const cs = getComputedStyle(document.documentElement);
+        return {
+            CW: parseFloat(cs.getPropertyValue("--cell-w")) || 72,
+            CH: parseFloat(cs.getPropertyValue("--cell-h")) || 30
+        };
+    }
+    function colLabel(i) {
+        let s = "", n = i + 1;
+        while (n > 0) {
+            const r = (n - 1) % 26;
+            s = String.fromCharCode(65 + r) + s;
+            n = Math.floor((n - 1) / 26);
+        }
+        return s;
+    }
+    let colCount = -1;
+    function renderCols() {
+        const {CW: CW} = dims();
+        const need = Math.ceil((innerWidth - 22) / (CW * MINZ)) + 1;
+        if (need === colCount) return;
+        colCount = need;
+        colScale.innerHTML = Array.from({
+            length: need
+        }, (_, i) => `<span>${colLabel(i)}</span>`).join("");
+    }
+    let rowSpans = [];
+    const storyEl = document.getElementById("story");
+    let storyTop = 0, storyPin = 0;
+    function syncStoryMetrics() {
+        if (!storyEl) {
+            storyTop = storyPin = 0;
+            return;
+        }
+        storyTop = storyEl.offsetTop;
+        storyPin = parseFloat(storyEl.dataset.pin) || Math.max(0, storyEl.offsetHeight - innerHeight);
+    }
+    function effScrollY(sy) {
+        return sy - Math.min(Math.max(sy - storyTop, 0), storyPin);
+    }
+    function renderRows() {
+        const {CH: CH} = dims();
+        const need = Math.ceil((innerHeight - 80) / (CH * MINZ)) + 2;
+        if (rowSpans.length !== need) {
+            rowScale.innerHTML = Array.from({
+                length: need
+            }, () => "<span></span>").join("");
+            rowSpans = Array.from(rowScale.children);
+        }
+        const sy = effScrollY(scrollY);
+        const rowAtTop = Math.floor(sy / CH);
+        const firstOffset = -(sy % CH);
+        rowSpans.forEach((s, i) => {
+            s.style.top = firstOffset + i * CH + "px";
+            s.textContent = rowAtTop + i + 1;
+        });
+    }
+    window.__setSheetZoom = function(z) {
+        const t = "scale(" + z + ")";
+        colScale.style.transform = t;
+        rowScale.style.transform = t;
+    };
+    syncStoryMetrics();
+    renderCols();
+    renderRows();
+    requestAnimationFrame(() => {
+        syncStoryMetrics();
+        renderRows();
+    });
+    let rafRows = false;
+    addEventListener("resize", () => {
+        requestAnimationFrame(() => {
+            syncStoryMetrics();
+            renderCols();
+            renderRows();
+        });
+    });
+    addEventListener("scroll", () => {
+        if (rafRows) return;
+        rafRows = true;
+        requestAnimationFrame(() => {
+            rafRows = false;
+            renderRows();
+        });
+    }, {
+        passive: true
+    });
+})();
+
+(function() {
+    const tabs = document.querySelectorAll('.sheetTabs a[href^="#"]');
+    if (!tabs.length) return;
+    const map = {};
+    tabs.forEach(a => {
+        map[a.getAttribute("href").slice(1)] = a;
+    });
+    const targets = Object.keys(map).map(id => document.getElementById(id)).filter(Boolean);
+    if (!targets.length) return;
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                tabs.forEach(a => a.classList.remove("on"));
+                map[e.target.id].classList.add("on");
+            }
+        });
+    }, {
+        rootMargin: "-50% 0px -50% 0px"
+    });
+    targets.forEach(t => obs.observe(t));
+})();
+
+(function() {
+    const sel = document.getElementById("roamSel");
+    if (!sel) return;
+    const ref = sel.querySelector(".ref");
+    const stage = sel.parentElement;
+    function cell() {
+        const cs = getComputedStyle(document.documentElement);
+        return {
+            CW: parseFloat(cs.getPropertyValue("--cell-w")) || 72,
+            CH: parseFloat(cs.getPropertyValue("--cell-h")) || 30
+        };
+    }
+    const cols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let pauseUntil = 0;
+    const OX = 0, OY = 0;
+    function place(c, r, w, h) {
+        const {CW: CW, CH: CH} = cell();
+        sel.style.transform = `translate(${OX + c * CW}px, ${OY + r * CH}px)`;
+        sel.style.width = w * CW + "px";
+        sel.style.height = h * CH + "px";
+        const a = cols[Math.min(c, cols.length - 1)] + (r + 1);
+        const b = cols[Math.min(c + w - 1, cols.length - 1)] + (r + h);
+        const t = w === 1 && h === 1 ? a : a + ":" + b;
+        ref.textContent = t;
+        return t;
+    }
+    function mergeRects() {
+        const {CW: CW, CH: CH} = cell();
+        let sx = 0, sy = 0, e = stage;
+        while (e) {
+            sx += e.offsetLeft;
+            sy += e.offsetTop;
+            e = e.offsetParent;
+        }
+        return Array.from(stage.querySelectorAll(".mcell")).map(el => {
+            let x = 0, y = 0, q = el;
+            while (q) {
+                x += q.offsetLeft;
+                y += q.offsetTop;
+                q = q.offsetParent;
+            }
+            return {
+                c1: Math.floor((x - sx - OX + 2) / CW),
+                r1: Math.floor((y - sy - OY + 2) / CH),
+                c2: Math.ceil((x - sx - OX + el.offsetWidth - 2) / CW) - 1,
+                r2: Math.ceil((y - sy - OY + el.offsetHeight - 2) / CH) - 1
+            };
+        });
+    }
+    function expandToMerges(c1, r1, c2, r2) {
+        const merges = mergeRects();
+        let changed = true;
+        while (changed) {
+            changed = false;
+            for (const m of merges) {
+                if (m.c2 < c1 || m.c1 > c2 || m.r2 < r1 || m.r1 > r2) continue;
+                if (m.c1 < c1) {
+                    c1 = m.c1;
+                    changed = true;
+                }
+                if (m.c2 > c2) {
+                    c2 = m.c2;
+                    changed = true;
+                }
+                if (m.r1 < r1) {
+                    r1 = m.r1;
+                    changed = true;
+                }
+                if (m.r2 > r2) {
+                    r2 = m.r2;
+                    changed = true;
+                }
+            }
+        }
+        return {
+            c1: c1,
+            r1: r1,
+            c2: c2,
+            r2: r2
+        };
+    }
+    function roam() {
+        if (Date.now() < pauseUntil) return;
+        const {CW: CW, CH: CH} = cell();
+        const rect = stage.getBoundingClientRect();
+        const maxC = Math.max(4, Math.floor(rect.width / CW) - 3);
+        const maxR = Math.max(6, Math.floor(rect.height / CH) - 5);
+        const c = 1 + Math.floor(Math.random() * (maxC - 1));
+        const r = 2 + Math.floor(Math.random() * (maxR - 2));
+        const w = 2 + Math.floor(Math.random() * 3);
+        const h = 2 + Math.floor(Math.random() * 3);
+        const g = expandToMerges(c, r, c + w - 1, r + h - 1);
+        place(g.c1, g.r1, g.c2 - g.c1 + 1, g.r2 - g.r1 + 1);
+    }
+    roam();
+    setInterval(roam, 3200);
+})();
+
+(function() {
+    const story = document.getElementById("story");
+    if (!story) return;
+    const stick = story.querySelector(".stick");
+    const cellsEl = document.getElementById("sheetCells");
+    const sel = document.getElementById("shotSel");
+    const ref = sel.querySelector(".ref");
+    const phone = document.getElementById("shotPhone");
+    const wFinal = document.getElementById("shotWidgetFinal");
+    const sprite = document.getElementById("shotWidget");
+    const stage = document.getElementById("shotStage");
+    const cap = story.querySelector(".storyCap");
+    const caps = [ document.getElementById("cap1"), document.getElementById("cap2"), document.getElementById("cap3") ];
+    const hint = document.getElementById("storyHint");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function dims() {
+        const cs = getComputedStyle(document.documentElement);
+        return {
+            CW: parseFloat(cs.getPropertyValue("--cell-w")) || 72,
+            CH: parseFloat(cs.getPropertyValue("--cell-h")) || 30
+        };
+    }
+    function colName(i) {
+        let s = "", n = i + 1;
+        while (n > 0) {
+            const r = (n - 1) % 26;
+            s = String.fromCharCode(65 + r) + s;
+            n = Math.floor((n - 1) / 26);
+        }
+        return s;
+    }
+    function row(cat, b, a, d, u, note, band) {
+        const x = band ? " bd" : "";
+        return [ {
+            t: cat,
+            c: "lbl" + x,
+            span: 2
+        }, {
+            t: b,
+            c: x
+        }, {
+            t: a,
+            c: x
+        }, {
+            t: d,
+            c: x
+        }, {
+            t: u,
+            c: x
+        }, {
+            t: note || "",
+            c: "lbl nt" + x,
+            span: 2
+        } ];
+    }
+    const SHEET = [ [ {
+        t: "Category",
+        c: "hd",
+        span: 2
+    }, {
+        t: "Budget",
+        c: "hd"
+    }, {
+        t: "Actual",
+        c: "hd"
+    }, {
+        t: "Diff",
+        c: "hd"
+    }, {
+        t: "Used %",
+        c: "hd"
+    }, {
+        t: "Note",
+        c: "hd",
+        span: 2
+    } ], row("Rent", "$1,400", "$1,400", "$0", "100%", "", false), row("Utilities", "$180", "$172", "$8", "96%", "", true), row("Electricity", "$95", "$88", "$7", "93%", "", false), row("Water", "$40", "$38", "$2", "95%", "", true), row("Internet", "$60", "$60", "$0", "100%", "", false), row("Phone", "$45", "$45", "$0", "100%", "", true), row("Groceries", "$520", "$498", "$22", "96%", "", false), row("Dining out", "$220", "$262", "-$42", "119%", "birthday dinner", true), row("Transport", "$140", "$121", "$19", "86%", "", false), row("Gas", "$120", "$132", "-$12", "110%", "road trip", true), row("Insurance", "$210", "$210", "$0", "100%", "", false), row("Healthcare", "$80", "$45", "$35", "56%", "", true), row("Entertainment", "$150", "$175", "-$25", "117%", "concert", false), row("Subscriptions", "$55", "$55", "$0", "100%", "", true), row("Clothing", "$100", "$62", "$38", "62%", "sale", false), row("Savings", "$600", "$600", "$0", "100%", "", true), [ {
+        t: "Total",
+        c: "lbl tot",
+        span: 2
+    }, {
+        t: "$4,015",
+        c: "tot"
+    }, {
+        t: "$3,963",
+        c: "tot"
+    }, {
+        t: "$52",
+        c: "tot"
+    }, {
+        t: "99%",
+        c: "tot"
+    }, {
+        t: "",
+        c: "tot",
+        span: 2
+    } ] ];
+    const SEL_COLS = 6, SEL_ROWS = 6;
+    const COL0_W = 2;
+    const totalCols = SHEET[0].reduce((s, x) => s + (x.span || 1), 0);
+    const totalRows = SHEET.length;
+    let geo = null;
+    function layout() {
+        const {CW: CW, CH: CH} = dims();
+        const vh = stick.offsetHeight || innerHeight;
+        story.style.marginTop = "";
+        story.style.height = "";
+        let top = story.offsetTop;
+        const pad = (CH - (top - 80) % CH) % CH;
+        if (pad) story.style.marginTop = pad + "px";
+        top += pad;
+        if (!reduce) {
+            const pin = Math.round(2.7 * vh / CH) * CH;
+            story.style.height = vh + pin + "px";
+            story.dataset.pin = pin;
+        }
+        const capBottom = cap.offsetTop + cap.offsetHeight;
+        const tabH = 44 + 34;
+        const availH = vh - tabH - capBottom - 10;
+        const availW = innerWidth - 22 - 8;
+        const zH = availH / ((totalRows + 1) * CH);
+        const zW = availW / ((totalCols + 2) * CW);
+        const z1 = Math.max(.45, Math.min(zH, zW, 1));
+        const viewColsV = (innerWidth - 22) / (CW * z1);
+        const c0 = Math.max(0, Math.floor((viewColsV - totalCols) / 2));
+        const m = Math.round((top - 80) / CH);
+        const k0 = Math.max(1, Math.ceil((80 + (capBottom + 8 - 80) / z1) / CH));
+        const y0 = k0 * CH;
+        const x0 = c0 * CW;
+        const r0 = m + k0 + 1;
+        let html = "";
+        SHEET.forEach((row, ri) => {
+            let c = c0;
+            row.forEach(cell => {
+                const span = cell.span || 1;
+                html += '<div class="sc ' + (cell.c || "") + '" style="left:' + c * CW + "px;top:" + (y0 + ri * CH) + "px;width:" + (span * CW + 1) + "px;height:" + (CH + 1) + 'px"><span>' + cell.t + "</span></div>";
+                c += span;
+            });
+        });
+        const totalColsAll = SHEET[0].reduce((s, x) => s + (x.span || 1), 0);
+        html += '<div class="tblOutline" style="left:' + x0 + "px;top:" + y0 + "px;width:" + (totalColsAll * CW + 1) + "px;height:" + (SHEET.length * CH + 1) + 'px"></div>';
+        cellsEl.innerHTML = html;
+        cellsEl.style.transformOrigin = "0px 80px";
+        geo = {
+            CW: CW,
+            CH: CH,
+            x0: x0,
+            y0: y0,
+            c0: c0,
+            r0: r0,
+            z1: z1
+        };
+    }
+    function syncStageMaxH() {
+        const stickRect = stick.getBoundingClientRect();
+        const capRect = cap.getBoundingClientRect();
+        const stickPB = parseFloat(getComputedStyle(stick).paddingBottom) || 0;
+        const usedTop = capRect.bottom - stickRect.top;
+        const available = stickRect.height - usedTop - stickPB;
+        document.documentElement.style.setProperty("--stage-max-h", Math.max(140, available) + "px");
+    }
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    const lerp = (a, b, t) => a + (b - a) * t;
+    function setSelRect(cols, rows, z) {
+        z = z || 1;
+        const {CW: CW, CH: CH, x0: x0, y0: y0, c0: c0, r0: r0} = geo;
+        sel.style.left = x0 * z + "px";
+        sel.style.top = 80 + (y0 - 80) * z + "px";
+        sel.style.width = cols * CW * z + "px";
+        sel.style.height = rows * CH * z + "px";
+        const cc = Math.max(1, Math.round(cols)), rr = Math.max(1, Math.round(rows));
+        ref.textContent = colName(c0) + r0 + (cc > 1 || rr > 1 ? ":" + colName(c0 + cc - 1) + (r0 + rr - 1) : "");
+    }
+    let toTarget = null, stageOffset = null;
+    let cachedVh = innerHeight;
+    let storyTop = 0, storyRange = 1;
+    function syncStoryRange() {
+        storyTop = story.getBoundingClientRect().top + scrollY;
+        storyRange = Math.max(1, story.offsetHeight - stick.offsetHeight);
+    }
+    function syncTargets() {
+        const stageRect = stage.getBoundingClientRect();
+        const prevT = phone.style.transition;
+        phone.style.transition = "none";
+        const prev = phone.style.transform;
+        phone.style.transform = "translate(-50%, 0)";
+        const r = wFinal.getBoundingClientRect();
+        phone.style.transform = prev;
+        phone.style.transition = prevT;
+        toTarget = {
+            x: r.left - stageRect.left,
+            y: r.top - stageRect.top,
+            w: r.width,
+            h: r.height
+        };
+        stageOffset = {
+            x: stage.offsetLeft,
+            y: stage.offsetTop
+        };
+    }
+    layout();
+    if (reduce) {
+        cellsEl.style.opacity = 1;
+        setSelRect(SEL_COLS, SEL_ROWS, 1);
+        sel.style.opacity = 1;
+        return;
+    }
+    syncStageMaxH();
+    syncTargets();
+    syncStoryRange();
+    let curCap = 0;
+    function setCap(i) {
+        if (i === curCap) return;
+        curCap = i;
+        caps.forEach((c, j) => c.classList.toggle("on", j === i));
+    }
+    let lastZ = -1;
+    function applyZoom(z) {
+        if (Math.abs(z - lastZ) < .0015) return;
+        lastZ = z;
+        const {CW: CW, CH: CH} = geo;
+        stick.style.backgroundSize = CW * z + "px " + CH * z + "px";
+        stick.style.backgroundPosition = "0px " + 80 * (1 - z) + "px";
+        cellsEl.style.transform = "scale(" + z + ")";
+        if (window.__setSheetZoom) window.__setSheetZoom(z);
+    }
+    const PZ0 = .04, PZ1 = .2, PD0 = .2, PD1 = .24, PA0 = .24, PA1 = .4, PB0 = .44, PB1 = .54, PC0 = .54, PCD1 = .62, PCP0 = .62, PC1 = .72, PL0 = .58, PL1 = .76;
+    let raf = false;
+    let lastP = null, lastScrollY = null;
+    function frame() {
+        raf = false;
+        if (!geo || !toTarget) return;
+        const vh = cachedVh;
+        const r = story.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        let p = clamp((scrollY - storyTop) / storyRange, 0, 1);
+        if (lastP !== null && lastScrollY !== null) {
+            const dy = Math.abs(scrollY - lastScrollY);
+            const dp = Math.abs(p - lastP);
+            if (dy < 40 && dp > .06) p = lastP;
+        }
+        lastP = p;
+        lastScrollY = scrollY;
+        if (hint) hint.style.opacity = p < PZ0 ? 1 : 0;
+        const z1 = geo.z1;
+        let z;
+        if (p < PZ0) z = 1; else if (p < PZ1) z = lerp(1, z1, ease((p - PZ0) / (PZ1 - PZ0))); else if (p < PC0) z = z1; else if (p < PC1) z = lerp(z1, 1, ease((p - PC0) / (PC1 - PC0))); else z = 1;
+        applyZoom(z);
+        const dOut = 1 - ease(clamp((p - PC0) / (PCD1 - PC0), 0, 1));
+        cellsEl.style.opacity = dOut;
+        const a = ease(clamp((p - PA0) / (PA1 - PA0), 0, 1));
+        setSelRect(lerp(COL0_W, SEL_COLS, a), lerp(1, SEL_ROWS, a), z);
+        const c = ease(clamp((p - PCP0) / (PC1 - PCP0), 0, 1));
+        phone.style.opacity = c;
+        phone.style.transform = `translate(-50%, ${lerp(26, 0, c)}%)`;
+        const b = ease(clamp((p - PB0) / (PB1 - PB0), 0, 1));
+        const d = ease(clamp((p - PL0) / (PL1 - PL0), 0, 1));
+        const fx = geo.x0 * z1 - stageOffset.x;
+        const fy = 80 + (geo.y0 - 80) * z1 - stageOffset.y;
+        const fw = SEL_COLS * geo.CW * z1, fh = SEL_ROWS * geo.CH * z1;
+        if (b <= 0) {
+            sprite.style.display = "none";
+            sprite.style.opacity = 0;
+            wFinal.style.opacity = 0;
+            sel.style.opacity = a > 0 ? 1 : 0;
+        } else if (d >= 1) {
+            sprite.style.display = "none";
+            wFinal.style.opacity = 1;
+            sel.style.opacity = 0;
+        } else {
+            const stageR = stage.getBoundingClientRect();
+            const wfR = wFinal.getBoundingClientRect();
+            const tX = wfR.left - stageR.left;
+            const tY = wfR.top - stageR.top;
+            const tW = wfR.width;
+            const ar = wfR.height / wfR.width;
+            const wPop = lerp(fw, fw * 1.05, b);
+            const w = lerp(wPop, tW, d);
+            const hFull = w * ar;
+            const h = hFull;
+            const cx = lerp(fx + fw / 2, tX + tW / 2, d);
+            const cyBase = lerp(fy + fh / 2 - 10 * b, tY + tW * ar / 2, d);
+            const bottomY = cyBase + hFull / 2;
+            sprite.style.display = "block";
+            sprite.style.opacity = b;
+            sprite.style.width = w + "px";
+            sprite.style.height = h + "px";
+            sprite.style.left = cx - w / 2 + "px";
+            sprite.style.top = bottomY - h + "px";
+            sel.style.opacity = (a > 0 ? 1 : 0) * (1 - b);
+            wFinal.style.opacity = 0;
+        }
+        setCap(p < PA0 ? 0 : p < PC0 ? 1 : 2);
+    }
+    addEventListener("scroll", () => {
+        if (!raf) {
+            raf = true;
+            requestAnimationFrame(frame);
+        }
+    }, {
+        passive: true
+    });
+    addEventListener("resize", () => {
+        if (majorRz) {
+            layout();
+            syncStageMaxH();
+            syncTargets();
+            lastZ = -1;
+            cachedVh = innerHeight;
+            syncStoryRange();
+            lastP = null;
+        }
+        if (!raf) {
+            raf = true;
+            requestAnimationFrame(frame);
+        }
+    }, {
+        passive: true
+    });
+    addEventListener("orientationchange", () => {
+        setTimeout(() => {
+            layout();
+            syncStageMaxH();
+            syncTargets();
+            lastZ = -1;
+            cachedVh = innerHeight;
+            syncStoryRange();
+            lastP = null;
+        }, 60);
+    }, {
+        passive: true
+    });
+    frame();
+})();
+
+(function() {
+    const io = new IntersectionObserver(es => {
+        es.forEach(e => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            if (el.classList.contains("split") && !el.classList.contains("played")) {
+                el.classList.add("played");
+                splitChars(el);
+            }
+            el.classList.add("in");
+            io.unobserve(el);
+        });
+    }, {
+        threshold: .12,
+        rootMargin: "0px 0px -40px"
+    });
+    document.querySelectorAll(".rv, h2.split").forEach(el => io.observe(el));
+})();
+
+(function() {
+    const sheet = document.getElementById("featSheet");
+    if (!sheet) return;
+    const io = new IntersectionObserver(es => {
+        es.forEach(e => {
+            if (e.isIntersecting) {
+                sheet.classList.add("played");
+                io.unobserve(sheet);
+            }
+        });
+    }, {
+        threshold: .25
+    });
+    io.observe(sheet);
+})();
+
+(function() {
+    const sheet = document.getElementById("feeGrid");
+    if (!sheet) return;
+    const io = new IntersectionObserver(es => {
+        es.forEach(e => {
+            if (e.isIntersecting) {
+                sheet.classList.add("play");
+                io.unobserve(sheet);
+            }
+        });
+    }, {
+        threshold: .35
+    });
+    io.observe(sheet);
+})();
+
+(function() {
+    const cells = Array.from(document.querySelectorAll("[data-cnt]"));
+    if (!cells.length) return;
+    const io = new IntersectionObserver(es => {
+        es.forEach(e => {
+            if (!e.isIntersecting) return;
+            const td = e.target;
+            io.unobserve(td);
+            const target = parseInt(td.dataset.cnt, 10);
+            const t0 = performance.now(), dur = 950;
+            const delay = cells.indexOf(td) % 4 * 90;
+            function tick(t) {
+                const q = Math.min(1, Math.max(0, (t - t0 - delay) / dur));
+                const eased = 1 - Math.pow(1 - q, 3);
+                td.textContent = Math.round(target * eased).toLocaleString("ja-JP");
+                if (q < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        });
+    }, {
+        threshold: .6
+    });
+    cells.forEach(c => io.observe(c));
+})();
+
+(function() {
+    const z = document.getElementById("zeroCount");
+    if (!z) return;
+    const io = new IntersectionObserver(es => {
+        es.forEach(e => {
+            if (!e.isIntersecting) return;
+            io.unobserve(z);
+            let shown = 8;
+            const iv = setInterval(() => {
+                shown = Math.max(0, shown - 1);
+                z.textContent = shown;
+                if (shown === 0) clearInterval(iv);
+            }, 110);
+        });
+    }, {
+        threshold: .6
+    });
+    io.observe(z);
+})()</script>
+</body>
+</html>
