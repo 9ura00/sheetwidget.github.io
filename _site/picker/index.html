@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Cache-Control" content="no-store">
+<script src="https://accounts.google.com/gsi/client"></script>
+<meta name="theme-color" content="#34C759">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Sheet Widget</title>
+<style>:root {
+  --green: #34C759;
+  --green-d: #248A3D;
+  --ink: #1c1c1e;
+  --sub: #6b7280;
+  --bg: #ffffff
+}
+* {
+  box-sizing: border-box
+}
+body,
+html {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  font-family: -apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--ink)
+}
+.picker-dialog {
+  left: 0!important;
+  top: 0!important;
+  right: 0!important;
+  bottom: 0!important;
+  width: 100%!important;
+  height: 100%!important;
+  border: none!important;
+  box-shadow: none!important
+}
+.picker-dialog-bg {
+  display: none!important
+}
+#escape {
+  position: fixed;
+  right: 10px;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  z-index: 2000;
+  display: none;
+  font-size: 13px;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(0,0,0,.72);
+  color: #fff;
+  font-family: inherit;
+  -webkit-backdrop-filter: blur(6px)
+}
+#escape.on {
+  display: block
+}
+.screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 0 40px;
+  text-align: center;
+  background: var(--bg)
+}
+.screen.hidden {
+  display: none
+}
+.logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 10px 26px rgba(52,199,89,.32)
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .2px
+}
+.sub {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.6;
+  max-width: 300px
+}
+.spin {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #e6f7ec;
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: r .8s linear infinite
+}
+@keyframes r {
+  to {
+    transform: rotate(360deg)
+  }
+}
+.spin.hidden {
+  display: none
+}
+.emoji {
+  font-size: 46px;
+  line-height: 1
+}
+.btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  background: var(--green);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 20px;
+  border-radius: 14px;
+  font-family: inherit;
+  box-shadow: 0 6px 16px rgba(52,199,89,.3);
+  transition: transform .08s,background .15s
+}
+.btn:active {
+  transform: scale(.98);
+  background: var(--green-d)
+}
+.btn.hidden {
+  display: none
+}
+.link {
+  appearance: none;
+  border: none;
+  background: 0 0;
+  cursor: pointer;
+  color: var(--sub);
+  font-size: 14.5px;
+  font-family: inherit;
+  padding: 8px
+}</style>
+</head>
+<body>
+
+
+<div class="screen" id="ready">
+  <img class="logo" src="/apple-touch-icon.png" width="88" height="88" alt="Sheet Widget">
+  <div class="title" id="readyTitle"></div>
+  <div class="sub" id="readySub"></div>
+  <div class="spin hidden" id="spin"></div>
+  <button class="btn" id="openBtn"></button>
+</div>
+
+
+<div class="screen hidden" id="error">
+  <div class="emoji">📄</div>
+  <div class="title" id="errTitle"></div>
+  <div class="sub" id="errText"></div>
+  <button class="btn" id="retryBtn"></button>
+  <button class="link" id="cancelBtn"></button>
+</div>
+<button id="escape"></button>
+
+<script>(function() {
+    "use strict";
+    var CB = "sheetwidgetpicker://";
+    var WEB_CLIENT_ID = "966661342666-0jkulmn0ua8dmkcov9ccati9g639s65p.apps.googleusercontent.com";
+    var STRINGS = {
+        ja: {
+            title: "スプレッドシートを選択",
+            sub: "Google でログインすると、<br>シートの一覧が表示されます。",
+            btn: "Google でログインして選ぶ",
+            cancelled: "ログインをキャンセルしました。<br>もう一度お試しください。",
+            resume: "画面を離れたので、<br>もう一度ログインしてください。",
+            loadTitle: "読み込めませんでした",
+            loadText: "通信環境を確認して、もう一度お試しください。",
+            appTitle: "このページはアプリ専用です",
+            appText: "Sheet Widget アプリの「＋」から開いてください。",
+            retry: "もう一度試す",
+            back: "アプリに戻る"
+        },
+        en: {
+            title: "Choose a spreadsheet",
+            sub: "Sign in with Google to see<br>your spreadsheets.",
+            btn: "Sign in with Google",
+            cancelled: "Sign-in was cancelled.<br>Please try again.",
+            resume: "You left this page.<br>Please sign in again.",
+            loadTitle: "Couldn’t load",
+            loadText: "Check your connection and try again.",
+            appTitle: "This page is part of the app",
+            appText: "Open it with the “+” button in Sheet Widget.",
+            retry: "Try again",
+            back: "Back to the app"
+        },
+        ko: {
+            title: "스프레드시트 선택",
+            sub: "Google 계정으로 로그인하면<br>스프레드시트 목록이 표시됩니다.",
+            btn: "Google 계정으로 로그인",
+            cancelled: "로그인을 취소했습니다.<br>다시 시도해 주세요.",
+            resume: "화면을 벗어났습니다.<br>다시 로그인해 주세요.",
+            loadTitle: "불러오지 못했습니다",
+            loadText: "네트워크 상태를 확인한 후 다시 시도해 주세요.",
+            appTitle: "앱 전용 페이지입니다",
+            appText: "Sheet Widget 앱의 ‘+’ 버튼에서 열어 주세요.",
+            retry: "다시 시도",
+            back: "앱으로 돌아가기"
+        },
+        "zh-TW": {
+            title: "選擇試算表",
+            sub: "使用 Google 帳戶登入後，<br>即會顯示試算表清單。",
+            btn: "使用 Google 帳戶登入",
+            cancelled: "已取消登入，<br>請再試一次。",
+            resume: "由於離開了畫面，<br>請重新登入。",
+            loadTitle: "無法載入",
+            loadText: "請檢查網路連線後再試一次。",
+            appTitle: "此頁面為App專用",
+            appText: "請從 Sheet Widget 的「＋」按鈕開啟。",
+            retry: "再試一次",
+            back: "返回App"
+        },
+        es: {
+            title: "Elige una hoja de cálculo",
+            sub: "Inicia sesión con Google para ver<br>tus hojas de cálculo.",
+            btn: "Iniciar sesión con Google",
+            cancelled: "Has cancelado el inicio de sesión.<br>Inténtalo de nuevo.",
+            resume: "Has salido de esta página.<br>Vuelve a iniciar sesión.",
+            loadTitle: "No se pudo cargar",
+            loadText: "Comprueba tu conexión e inténtalo de nuevo.",
+            appTitle: "Esta página es parte de la app",
+            appText: "Ábrela con el botón «+» de Sheet Widget.",
+            retry: "Intentar de nuevo",
+            back: "Volver a la app"
+        },
+        de: {
+            title: "Tabelle auswählen",
+            sub: "Melde dich mit Google an,<br>um deine Tabellen zu sehen.",
+            btn: "Mit Google anmelden",
+            cancelled: "Anmeldung abgebrochen.<br>Bitte versuche es erneut.",
+            resume: "Du hast diese Seite verlassen.<br>Bitte melde dich erneut an.",
+            loadTitle: "Laden fehlgeschlagen",
+            loadText: "Prüfe deine Verbindung und versuche es erneut.",
+            appTitle: "Diese Seite gehört zur App",
+            appText: "Öffne sie über die Schaltfläche „+“ in Sheet Widget.",
+            retry: "Erneut versuchen",
+            back: "Zurück zur App"
+        },
+        fr: {
+            title: "Choisir une feuille de calcul",
+            sub: "Connectez-vous avec Google pour voir<br>vos feuilles de calcul.",
+            btn: "Se connecter avec Google",
+            cancelled: "Connexion annulée.<br>Veuillez réessayer.",
+            resume: "Vous avez quitté cette page.<br>Veuillez vous reconnecter.",
+            loadTitle: "Échec du chargement",
+            loadText: "Vérifiez votre connexion et réessayez.",
+            appTitle: "Cette page fait partie de l’app",
+            appText: "Ouvrez-la avec le bouton « + » de Sheet Widget.",
+            retry: "Réessayer",
+            back: "Retour à l’app"
+        }
+    };
+    var readyScreen = document.getElementById("ready");
+    var readySub = document.getElementById("readySub");
+    var errBox = document.getElementById("error");
+    var errText = document.getElementById("errText");
+    var errTitle = document.getElementById("errTitle");
+    var spin = document.getElementById("spin");
+    var openBtn = document.getElementById("openBtn");
+    var built = false, stalled = false, watchdog = null;
+    var leftPage = false;
+    var ORIGINAL_HASH = location.hash;
+    var params = {};
+    location.hash.slice(1).split("&").forEach(function(kv) {
+        var i = kv.indexOf("=");
+        if (i > 0) params[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1));
+    });
+    var T = STRINGS[params.locale] || STRINGS.en;
+    document.documentElement.lang = params.locale === "zh-TW" ? "zh-Hant" : params.locale || "en";
+    document.getElementById("readyTitle").textContent = T.title;
+    readySub.innerHTML = T.sub;
+    openBtn.textContent = T.btn;
+    document.getElementById("retryBtn").textContent = T.retry;
+    document.getElementById("cancelBtn").textContent = T.back;
+    function back(path) {
+        location.replace(CB + path);
+    }
+    function showError(title, msg) {
+        stalled = true;
+        if (watchdog) {
+            clearTimeout(watchdog);
+            watchdog = null;
+        }
+        readyScreen.classList.add("hidden");
+        errTitle.textContent = title;
+        errText.textContent = msg;
+        errBox.classList.remove("hidden");
+    }
+    function showLoadError() {
+        showError(T.loadTitle, T.loadText);
+    }
+    document.getElementById("retryBtn").onclick = function() {
+        location.replace(location.pathname + ORIGINAL_HASH);
+    };
+    document.getElementById("cancelBtn").onclick = function() {
+        back("cancel");
+    };
+    if (!params.key || !params.appId) {
+        document.getElementById("retryBtn").classList.add("hidden");
+        showError(T.appTitle, T.appText);
+        return;
+    }
+    window.addEventListener("error", function() {
+        if (!built && !stalled) showLoadError();
+    });
+    var pickerReady = false, buildWhenReady = false;
+    window.__onApiLoad = function() {
+        gapi.load("picker", {
+            callback: function() {
+                pickerReady = true;
+                if (buildWhenReady) {
+                    buildWhenReady = false;
+                    createPicker();
+                }
+            },
+            onerror: showLoadError
+        });
+    };
+    function showOpenButton() {
+        if (watchdog) {
+            clearTimeout(watchdog);
+            watchdog = null;
+        }
+        clearLoginWatch();
+        spin.classList.add("hidden");
+        openBtn.classList.remove("hidden");
+    }
+    var tokenClient = null, accessToken = null;
+    var pickedEmail = null;
+    function fetchPickedEmail(token) {
+        fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        }).then(function(r) {
+            return r.ok ? r.json() : null;
+        }).then(function(j) {
+            if (j && j.email) pickedEmail = j.email;
+        }).catch(function() {});
+    }
+    var loginWatch = null;
+    function armLoginWatch() {
+        clearLoginWatch();
+        loginWatch = setTimeout(function() {
+            if (document.hidden) {
+                armLoginWatch();
+                return;
+            }
+            if (accessToken || built || stalled) return;
+            showOpenButton();
+            readySub.innerHTML = T.loadText;
+        }, 45e3);
+    }
+    function clearLoginWatch() {
+        if (loginWatch) {
+            clearTimeout(loginWatch);
+            loginWatch = null;
+        }
+    }
+    function startLogin() {
+        openBtn.classList.add("hidden");
+        spin.classList.remove("hidden");
+        armLoginWatch();
+        disposePicker();
+        try {
+            if (!tokenClient) {
+                tokenClient = google.accounts.oauth2.initTokenClient({
+                    client_id: WEB_CLIENT_ID,
+                    scope: "https://www.googleapis.com/auth/drive.file email",
+                    callback: function(resp) {
+                        if (resp && resp.access_token) {
+                            accessToken = resp.access_token;
+                            pickedEmail = null;
+                            fetchPickedEmail(accessToken);
+                            if (pickerReady) createPicker(); else buildWhenReady = true;
+                        } else {
+                            showOpenButton();
+                            readySub.innerHTML = T.cancelled;
+                        }
+                    },
+                    error_callback: function() {
+                        showOpenButton();
+                        readySub.innerHTML = T.sub;
+                    }
+                });
+            }
+            var opts = {
+                prompt: "select_account"
+            };
+            if (params.hint) opts.login_hint = params.hint;
+            tokenClient.requestAccessToken(opts);
+        } catch (e) {
+            showLoadError();
+        }
+    }
+    document.addEventListener("visibilitychange", function() {
+        if (document.hidden) {
+            leftPage = true;
+            return;
+        }
+        if (!leftPage || stalled) return;
+        leftPage = false;
+        if (!openBtn.classList.contains("hidden")) return;
+        if (accessToken) return;
+        disposePicker();
+        built = false;
+        if (watchdog) {
+            clearTimeout(watchdog);
+            watchdog = null;
+        }
+        errBox.classList.add("hidden");
+        readyScreen.classList.remove("hidden");
+        readySub.innerHTML = T.resume;
+        showOpenButton();
+    });
+    var escapeBtn = document.getElementById("escape");
+    escapeBtn.textContent = T.retry;
+    escapeBtn.onclick = function() {
+        escapeBtn.classList.remove("on");
+        disposePicker();
+        built = false;
+        accessToken = null;
+        stalled = false;
+        if (watchdog) {
+            clearTimeout(watchdog);
+            watchdog = null;
+        }
+        errBox.classList.add("hidden");
+        readyScreen.classList.remove("hidden");
+        readySub.innerHTML = T.resume;
+        showOpenButton();
+    };
+    openBtn.onclick = startLogin;
+    var currentPicker = null;
+    function disposePicker() {
+        var esc = document.getElementById("escape");
+        if (esc) esc.classList.remove("on");
+        if (currentPicker) {
+            try {
+                currentPicker.setVisible(false);
+                currentPicker.dispose();
+            } catch (e) {}
+            currentPicker = null;
+        }
+        [ ".picker-dialog", ".picker-dialog-bg" ].forEach(function(sel) {
+            Array.prototype.forEach.call(document.querySelectorAll(sel), function(el) {
+                el.parentNode && el.parentNode.removeChild(el);
+            });
+        });
+    }
+    function watchForPicker() {
+        var tries = 0;
+        var iv = setInterval(function() {
+            if (built) {
+                clearInterval(iv);
+                return;
+            }
+            if (++tries >= 14) {
+                clearInterval(iv);
+                disposePicker();
+                showLoadError();
+            }
+        }, 500);
+    }
+    function pickerLocale() {
+        return STRINGS[params.locale] ? params.locale : "en";
+    }
+    function createPicker() {
+        try {
+            var view = new google.picker.DocsView(google.picker.ViewId.SPREADSHEETS).setMode(google.picker.DocsViewMode.LIST).setIncludeFolders(false);
+            if (params.fileIds) view.setFileIds(params.fileIds);
+            currentPicker = (new google.picker.PickerBuilder).setOAuthToken(accessToken).setDeveloperKey(params.key).setAppId(params.appId).setOrigin(location.protocol + "//" + location.host).setLocale(pickerLocale()).setSelectableMimeTypes("application/vnd.google-apps.spreadsheet").addView(view).setCallback(function(data) {
+                var R = google.picker.Response, A = google.picker.Action;
+                var action = data[R.ACTION];
+                if (action === A.PICKED) {
+                    var doc = data[R.DOCUMENTS][0];
+                    back("picked?id=" + encodeURIComponent(doc[google.picker.Document.ID]) + "&name=" + encodeURIComponent(doc[google.picker.Document.NAME] || "") + "&email=" + encodeURIComponent(pickedEmail || ""));
+                } else if (action === A.CANCEL) {
+                    back("cancel");
+                } else if (action === A.LOADED) {
+                    built = true;
+                    if (watchdog) {
+                        clearTimeout(watchdog);
+                        watchdog = null;
+                    }
+                    readyScreen.classList.add("hidden");
+                    errBox.classList.add("hidden");
+                }
+            }).build();
+            currentPicker.setVisible(true);
+            document.getElementById("escape").classList.add("on");
+            watchForPicker();
+        } catch (e) {
+            showLoadError();
+        }
+    }
+    var s = document.createElement("script");
+    s.src = "https://apis.google.com/js/api.js?onload=__onApiLoad";
+    s.onerror = showLoadError;
+    document.head.appendChild(s);
+    watchdog = setTimeout(function() {
+        if (!built && !stalled && openBtn.classList.contains("hidden")) showLoadError();
+    }, 12e3);
+})()</script>
+</body>
+</html>
