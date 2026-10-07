@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Google Sheets Widget for iPhone Home Screen｜Sheet Widget</title>
-<meta name="description" content="Put any range of your Google Sheets on your iPhone home screen as a widget. Formatting intact, always up to date. Charts supported. Free on the App Store.">
+<meta name="description" content="View a Google Sheets range on your iPhone Home Screen with cell colors, borders and formatting. Free to start; charts and manual refresh are available with Pro.">
 <link rel="canonical" href="https://sheetwidget.com/">
 <link rel="alternate" hreflang="x-default" href="https://sheetwidget.com/">
 <link rel="alternate" hreflang="en" href="https://sheetwidget.com/">
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Sheet Widget">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Google Sheets Widget for iPhone Home Screen｜Sheet Widget">
-<meta property="og:description" content="Put any range of your Google Sheets on your iPhone home screen as a widget. Formatting intact, always up to date. Charts supported. Free on the App Store.">
+<meta property="og:description" content="View a Google Sheets range on your iPhone Home Screen with cell colors, borders and formatting. Free to start; charts and manual refresh are available with Pro.">
 <meta property="og:image" content="https://sheetwidget.com/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,10 +25,10 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Google Sheets Widget for iPhone Home Screen｜Sheet Widget">
-<meta name="twitter:description" content="Put any range of your Google Sheets on your iPhone home screen as a widget. Formatting intact, always up to date. Charts supported. Free on the App Store.">
+<meta name="twitter:description" content="View a Google Sheets range on your iPhone Home Screen with cell colors, borders and formatting. Free to start; charts and manual refresh are available with Pro.">
 <meta name="twitter:image" content="https://sheetwidget.com/img/og.png">
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Sheet Widget", "operatingSystem": "iOS", "applicationCategory": "UtilitiesApplication", "url": "https://sheetwidget.com/", "inLanguage": "en", "description": "Put any range of your Google Sheets on your iPhone home screen as a widget. Formatting intact, always up to date. Charts supported. Free on the App Store.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "installUrl": "https://apps.apple.com/app/id6795254414", "sameAs": ["https://apps.apple.com/app/id6795254414"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Sheet Widget", "operatingSystem": "iOS", "applicationCategory": "UtilitiesApplication", "url": "https://sheetwidget.com/", "inLanguage": "en", "description": "View a Google Sheets range on your iPhone Home Screen with cell colors, borders and formatting. Free to start; charts and manual refresh are available with Pro.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "installUrl": "https://apps.apple.com/app/id6795254414", "sameAs": ["https://apps.apple.com/app/id6795254414"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Do I need to share the sheet or publish it to the web?", "acceptedAnswer": {"@type": "Answer", "text": "No. Just pick the range you want to show — the sheet stays private. Nothing is ever made visible to anyone else."}}, {"@type": "Question", "name": "Could someone take over my Google account through this?", "acceptedAnswer": {"@type": "Answer", "text": "Sheet Widget can only read the sheet you explicitly selected. It never handles your password directly — access is scoped through Google’s own OAuth sign-in."}}, {"@type": "Question", "name": "Should I get Free or Pro?", "acceptedAnswer": {"@type": "Answer", "text": "If you just want one table on your Home Screen, Free covers it. Want multiple sheets, no watermark, charts, or copying a cell’s value? Go Pro — it’s free to try for 7 days."}}, {"@type": "Question", "name": "How current is the number shown in the widget?", "acceptedAnswer": {"@type": "Answer", "text": "On iOS, automatic refreshes happen roughly every 15–60 minutes. Need it now? Pro’s instant refresh button updates it right away."}}, {"@type": "Question", "name": "Does it work with formulas or the IMAGE() function?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — computed results and images show up as-is. You don’t need to rewrite formulas or set up any script for the widget."}}, {"@type": "Question", "name": "Are checkboxes and other special formatting reproduced?", "acceptedAnswer": {"@type": "Answer", "text": "Values, background/text colors, bold/italic/underline/strikethrough, borders, alignment, merged cells, and text wrapping are all reproduced. Some objects, like checkboxes, aren’t supported yet."}}, {"@type": "Question", "name": "Why does the app open when I tap a cell to copy it?", "acceptedAnswer": {"@type": "Answer", "text": "iOS does not allow a widget to write to the clipboard directly.\nThe app comes to the front for a moment to do the copy.\nIf you set the tap destination to “Spreadsheet”, you land on the sheet right after the copy."}}, {"@type": "Question", "name": "Does copying include formatting?", "acceptedAnswer": {"@type": "Answer", "text": "No, only the cell’s text value is copied.\nText color, background color, bold, and other formatting aren’t copied, and neither are images shown via the IMAGE function.\nTapping an empty cell copies nothing."}}]}</script>
 
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -2059,6 +2059,19 @@ footer {
     var n = (navigator.language || "").toLowerCase(), to = null;
     if (n.indexOf("ja") === 0) to = "/ja/"; else if (n.indexOf("ko") === 0) to = "/ko/"; else if (n.indexOf("zh") === 0) to = "/zht/"; else if (n.indexOf("es") === 0) to = "/es/"; else if (n.indexOf("de") === 0) to = "/de/"; else if (n.indexOf("fr") === 0) to = "/fr/";
     if (to) location.replace(to + location.search + location.hash);
+})()</script>
+
+
+<script>(function() {
+    const description = document.querySelector('meta[name="description"]').content;
+    document.addEventListener("DOMContentLoaded", function() {
+        [ 'meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]' ].forEach(function(selector) {
+            const tag = document.querySelector(selector);
+            if (tag) tag.content = description;
+        });
+    }, {
+        once: true
+    });
 })()</script>
 
 </head>
